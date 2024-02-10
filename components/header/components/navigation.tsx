@@ -17,35 +17,51 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 export default function Navigation() {
+  const routes = useRouter();
+
+  const handleAboutUseClick = (path: string) => {
+    document.getElementById("about-us-btn")?.click();
+    routes.push(path);
+  };
+
   return (
     <NavigationMenu className="text-[#fff] !text-md">
       <NavigationMenuList>
         <NavigationItem text="Home" href="/" />
         <NavigationMenuItem>
           <Popover>
-            <PopoverTrigger className="px-[16px] py-[8px] text-md font-medium flex gap-2 items-center">
+            <PopoverTrigger
+              id="about-us-btn"
+              className="px-[16px] py-[8px] text-md font-medium flex gap-2 items-center"
+            >
               About Us
               <TriangleDownIcon />
             </PopoverTrigger>
             <PopoverContent className="w-fit px-0 bg-[#D9D9D9] text-[#19253E] font-bolder py-2 text-md">
               <div className="flex flex-col w-full justify-center">
-                <Link href="/about-us" className="text-center mb-1 px-4">
+                <div
+                  onClick={() => handleAboutUseClick("/about-us")}
+                  className="text-center mb-1 px-4 cursor-pointer"
+                >
                   About Alssa
-                </Link>
-                <Link
-                  href="/about-us/about-alssa"
-                  className="text-center border-y-2 py-1 border-[#ADBBD7] px-4"
+                </div>
+                <div
+                  onClick={() =>
+                    handleAboutUseClick("/about-us/message-from-ceo")
+                  }
+                  className="text-center border-y-2 py-1 border-[#ADBBD7] px-4 cursor-pointer"
                 >
                   Message From CEO
-                </Link>
-                <Link
-                  href="/about-us/about-alssa"
-                  className="text-center mt-1 px-4"
+                </div>
+                <div
+                  onClick={() => handleAboutUseClick("/about-us/alssa-gallery")}
+                  className="text-center mt-1 px-4 cursor-pointer"
                 >
                   Alssa&apos;s Gallery
-                </Link>
+                </div>
               </div>
             </PopoverContent>
           </Popover>

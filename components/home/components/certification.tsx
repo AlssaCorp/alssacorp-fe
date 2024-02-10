@@ -11,7 +11,7 @@ export default function Certification() {
           <h1 className="font-black">Certifications</h1>
         </div>
         <div className="grid grid-cols-3 gap-12 text-center">
-          {Array.from({ length: 4 }).map((_, index) => (
+          {Array.from({ length: 3 }).map((_, index) => (
             <Card
               key={index}
               className="aspect-square flex items-center justify-center"
