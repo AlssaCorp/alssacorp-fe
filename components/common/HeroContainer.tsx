@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface HeroContainer {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   src: string;
 }
