@@ -6,6 +6,12 @@ import React from "react";
 import { Header } from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+
 export const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",

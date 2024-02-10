@@ -74,3 +74,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-button-next {
+  background-image: url("/svg/next-arrow.svg") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  transform: scale(2);
+}
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev {
+  background-image: url("/svg/prev-arrow.svg") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  transform: scale(2);
+}
+
+.swiper-button-prev::after {
+  display: none;
+}

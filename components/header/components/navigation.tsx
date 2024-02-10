@@ -6,11 +6,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
@@ -65,11 +63,11 @@ export default function Navigation() {
         <NavigationItem text="Home" href="/" />
         <NavigationMenuItem>
           <Popover>
-            <PopoverTrigger className="px-[16px] py-[8px] text-sm font-medium flex gap-2 items-center">
+            <PopoverTrigger className="px-[16px] py-[8px] text-md font-medium flex gap-2 items-center">
               About Us
               <TriangleDownIcon />
             </PopoverTrigger>
-            <PopoverContent className="w-fit px-0 bg-[#D9D9D9] text-[#19253E] font-bolder py-2 text-sm">
+            <PopoverContent className="w-fit px-0 bg-[#D9D9D9] text-[#19253E] font-bolder py-2 text-md">
               <div className="flex flex-col w-full justify-center">
                 <Link href="/about-us" className="text-center mb-1 px-4">
                   About Alssa
@@ -132,8 +130,8 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-md font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
             {children}
           </p>
         </a>
