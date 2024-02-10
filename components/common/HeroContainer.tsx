@@ -13,7 +13,7 @@ export default function HeroContainer({
 }: HeroContainer) {
   return (
     <div
-      className={`w-full h-screen relative flex justify-end relative text-[#FFF] ${className}`}
+      className={`w-full h-screen flex justify-end relative text-[#FFF] ${className}`}
     >
       <div className="absolute inset-0 z-0">
         <Image src={src} layout="fill" objectFit="cover" alt="hero-1" />
