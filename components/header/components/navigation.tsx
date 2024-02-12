@@ -66,8 +66,8 @@ export default function Navigation() {
             </PopoverContent>
           </Popover>
         </NavigationMenuItem>
-        <NavigationItem href="products" text="Products" />
-        <NavigationItem href="contact-us" text="Contact Us" />
+        <NavigationItem href="/products" text="Products" />
+        <NavigationItem href="/contact-us" text="Contact Us" />
       </NavigationMenuList>
     </NavigationMenu>
   );
