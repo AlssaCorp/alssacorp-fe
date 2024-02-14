@@ -1,18 +1,23 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const imageCoverData = [
   {
     url: "/img/products/public-trucking.jpg",
     alt: "public trucking",
     title: "Public Trunking",
-    className: "#B69D74",
+    className:
+      "linear-gradient(to bottom, rgba(182, 157, 116, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#253961]",
   },
   {
     url: "/img/products/radio-link-data.jpg",
     alt: "radio link data comm scada/telementary",
     title: "Radio Link Data Comm SCADA / Telemetry",
-    className: "text-[#FFF]",
+    className:
+      "linear-gradient(to bottom, rgba(31, 40, 50, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#FFF]",
   },
   {
@@ -20,14 +25,16 @@ const imageCoverData = [
     alt: "surveillance security system sensor monitoring and aplication software",
     title:
       "Surveillance Security System Sensor Monitoring and Application Software",
-    className: "text-[#FFF]",
+    className:
+      "linear-gradient(to bottom, rgba(31, 40, 50, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#FFF]",
   },
   {
     url: "/img/products/radio-trucking-system.jpg",
     alt: "radio trunking system",
     title: "Radio Trunking System",
-    className: "#B69D74",
+    className:
+      "linear-gradient(to bottom, rgba(182, 157, 116, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#253961]",
   },
 ];
@@ -99,10 +106,16 @@ function ImageCover({
   className,
   textClassName,
 }: ImageCoverProps) {
+  const route = useRouter();
   return (
-    <div className="w-full h-full relative cursor-pointer">
+    <div
+      className="w-full h-full relative cursor-pointer"
+      onClick={() => {
+        route.push("/products/list");
+      }}
+    >
       <Image
-        className="w-full h-full"
+        className="w-full h-full z-[2]"
         src={url}
         width={2000}
         height={2000}
@@ -110,11 +123,16 @@ function ImageCover({
       />
       <div
         style={{
-          backgroundImage: `linear-gradient(to bottom, transparent, ${className})`,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: className,
         }}
       />
       <div
-        className={`font-bold text-xl absolute top-1/2 -translate-y-1/2 w-full text-center px-4 ${textClassName}`}
+        className={`font-bold text-xl absolute top-1/2 -translate-y-1/2 w-full text-center px-4 ${textClassName} z-[3]`}
       >
         {title.toUpperCase()}
       </div>

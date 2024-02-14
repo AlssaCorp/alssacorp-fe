@@ -12,8 +12,22 @@ export default function Diary() {
         <h1 className="text-xl font-bold">Alssa Corporindo&apos;s Diary</h1>
       </div>
       <div className="relative">
-        <Image src="/img/hero-5.png" width={2000} height={2000} alt="diary" />
-        <div className="absolute text-[#FFF] flex flex-col items-center top-1/2 -translate-y-1/2">
+        <div className="relative">
+          <Image src="/img/hero-5.png" width={2000} height={2000} alt="diary" />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background:
+                "linear-gradient(to bottom, rgba(37, 57, 97, 0.4), rgba(37, 57, 97, 0.4))",
+              zIndex: 1,
+            }}
+          />
+        </div>
+        <div className="absolute z-[100] text-[#FFF] flex flex-col items-center top-1/2 -translate-y-1/2">
           <div className="max-w-[75%] flex flex-col items-center gap-4">
             <div>
               <h1 className="font-bold italic text-center">
@@ -34,7 +48,7 @@ export default function Diary() {
           </div>
         </div>
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#1F2839] w-full py-2 rounded-b-[20px] cursor-pointer"
+          className="z-[100] absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#1F2839] w-full py-2 rounded-b-[20px] cursor-pointer"
           onClick={() => route.push("/about-us/alssa-gallery")}
         >
           <div className="flex gap-2 justify-center font-bold text-[#FFF]">

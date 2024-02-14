@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 
 interface HeroContainer {
   children?: React.ReactNode;
@@ -17,8 +18,20 @@ export default function HeroContainer({
     >
       <div className="absolute inset-0 z-0">
         <Image src={src} layout="fill" objectFit="cover" alt="hero-1" />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background:
+              "linear-gradient(to bottom, rgba(37, 57, 97, 0.4), rgba(37, 57, 97, 0.4))",
+            zIndex: 1,
+          }}
+        ></div>
       </div>
-      {children}
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
+import Image from "next/image";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,6 +36,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Header />
         {children}
         <Footer />
+        <div className="fixed top-3/4 -translate-y-3/4 right-0 cursor-pointer">
+          <Image width={80} height={80} src="/img/wa.png" alt="wa-icon" />
+        </div>
       </body>
     </html>
   );
