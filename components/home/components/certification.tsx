@@ -5,7 +5,7 @@ import React from "react";
 export default function Certification() {
   return (
     <div className="bg-[#1F283911]">
-      <div className="py-8  container px-10">
+      <div className="py-8  container px-16">
         <div className="text-3xl pb-8">
           <h1 className="font-normal">Company</h1>
           <h1 className="font-black">Certifications</h1>

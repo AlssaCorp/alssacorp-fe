@@ -5,7 +5,7 @@ import Pagination from "@mui/material/Pagination";
 export default function OurPortfolio() {
   return (
     <div className="bg-[#F2F2F2]">
-      <div className="py-8 container px-10 ">
+      <div className="py-8 container px-16 ">
         <div className="text-3xl pb-8">
           <h1 className="font-normal">Our</h1>
           <h1 className="font-black">Portfolio</h1>
@@ -29,7 +29,7 @@ export default function OurPortfolio() {
             ))}
           </div>
           <div className="w-full max-w-[1200px] mt-4">
-            <p className="text-end mt-4">Last update: XX MM 2024</p>
+            <p className="text-end mt-4">Last updated: XX MM 2024</p>
           </div>
           <div className="w-full max-w-[1200px] mt-4 flex justify-center">
             <Pagination count={10} size="large" color="primary" />

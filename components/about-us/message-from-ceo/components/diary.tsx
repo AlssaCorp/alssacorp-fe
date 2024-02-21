@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Diary() {
   const route = useRouter();
   return (
-    <div className="container px-10 py-8">
+    <div className="container px-16 py-8">
       <div className="mb-4">
         <h1 className="text-xl font-bold">Alssa Corporindo&apos;s Diary</h1>
       </div>
@@ -21,8 +21,6 @@ export default function Diary() {
               left: 0,
               right: 0,
               bottom: 0,
-              background:
-                "linear-gradient(to bottom, rgba(37, 57, 97, 0.4), rgba(37, 57, 97, 0.4))",
               zIndex: 1,
             }}
           />
@@ -48,7 +46,7 @@ export default function Diary() {
           </div>
         </div>
         <div
-          className="z-[100] absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#1F2839] w-full py-2 rounded-b-[20px] cursor-pointer"
+          className="z-[100] absolute bottom-0 left-1/2 -translate-x-1/2 bg-[#1F2839] w-full py-3 rounded-b-[20px] cursor-pointer"
           onClick={() => route.push("/about-us/alssa-gallery")}
         >
           <div className="flex gap-2 justify-center font-bold text-[#FFF]">

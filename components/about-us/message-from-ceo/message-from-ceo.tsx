@@ -4,7 +4,7 @@ import Hero from "./components/hero";
 
 export default function MessageFromCeo() {
   return (
-    <div className="bg-[#FFF]">
+    <div className="bg-[#FFF] text-[#19253E]">
       <Hero />
       <CeoMessage />
       <Diary />

@@ -55,7 +55,7 @@ const explanationData = [
 export default function Products() {
   return (
     <div className="bg-[#FFF]">
-      <div className="py-8 container px-10">
+      <div className="py-8 container px-16">
         <div className="text-3xl pb-8 mt-8">
           <h1 className="font-bold text-[#B69D74] italic text-center">
             PRODUCTS & SERVICES
@@ -77,7 +77,7 @@ export default function Products() {
           );
         })}
       </div>
-      <div className="py-8 container px-10 flex gap-4 flex-col">
+      <div className="py-8 container px-16 flex gap-4 flex-col text-[#19253E]">
         {explanationData.map((data, idx) => (
           <div key={idx}>
             <ProductExplanation

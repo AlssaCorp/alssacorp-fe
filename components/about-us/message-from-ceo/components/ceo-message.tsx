@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CeoMessage() {
   return (
-    <div className="container py-8 px-10">
+    <div className="container py-8 px-16">
       <div className="grid grid-cols-3 gap-12">
         <div>
           <div className="aspect-square">
@@ -13,7 +13,7 @@ export default function CeoMessage() {
               alt="dian susanti"
             />
           </div>
-          <div className="w-full text-center mt-4">
+          <div className="w-full text-center mt-4 text-[#253961]">
             <div className="font-bold text-xl">Dian Susanti, SE</div>
             <p className="text-md">President Director</p>
           </div>
@@ -22,7 +22,7 @@ export default function CeoMessage() {
           <div className="mb-4">
             <h1 className="font-bold text-xl">Messages From CEO</h1>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-[#253961]">
             <p>
               Throughout our journey, we have consistently embraced the power of
               technology and its potential to drive transformative change.
@@ -45,7 +45,7 @@ export default function CeoMessage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 mt-8">
+      <div className="flex flex-col gap-4 mt-8 text-[#253961]">
         <p>
           As we journey forward, we are dedicated to sustainability and social
           responsibility. Environmental stewardship will be a key focus, as we

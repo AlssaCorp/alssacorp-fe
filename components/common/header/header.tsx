@@ -6,7 +6,7 @@ import Navigation from "./components/navigation";
 export function Header() {
   return (
     <header className="text-md sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 !bg-[#1F2839]">
-      <div className="container flex h-[64px] items-center">
+      <div className="container flex h-[64px] items-center px-12">
         <div className="hidden md:flex w-full justify-between">
           <a className="mr-6 flex items-center space-x-2" href="/">
             <span className="hidden text-lg font-bold sm:inline-block">

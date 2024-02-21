@@ -1,5 +1,4 @@
-import { Card } from "@/components/ui/card";
-import { CardContent } from "@mui/material";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
 export default function ProductList() {
@@ -17,8 +16,8 @@ export default function ProductList() {
 function ProductCard() {
   return (
     <Card>
-      <CardContent className="text-center p-2">
-        <div className="aspect-square relative">
+      <CardContent className="text-center p-3">
+        <div className="aspect-square relative mb-2">
           <Image
             src="/img/products/public-trucking.jpg"
             alt="products-data"
@@ -26,9 +25,12 @@ function ProductCard() {
             className="w-full h-full object-cover"
           />
         </div>
-
-        <div>(HT) Handy Talky Tait tp 8100 800 mhz</div>
-        <div>Motorola</div>
+        <div className="text-[#253961] text-sm">
+          <div className="font-medium">
+            (HT) Handy Talky Tait tp 8100 800 mhz
+          </div>
+          <div className="font-bold">Motorola</div>
+        </div>
       </CardContent>
     </Card>
   );

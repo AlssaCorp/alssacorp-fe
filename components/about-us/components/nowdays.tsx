@@ -1,11 +1,11 @@
 export default function NowDays() {
   return (
-    <div className="py-8 container px-10 ">
+    <div className="py-8 container px-16 ">
       <div className="text-3xl pb-8">
         <h1 className="font-normal">Alssa Corp</h1>
         <h1 className="font-black">Nowdays</h1>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 text-[#253961]">
         <p>
           In the face of unprecedented challenges brought on by the global
           pandemic, Alssa Corp stood strong and adapted swiftly to ensure
@@ -47,7 +47,7 @@ function ValueItem({ goal, description }: ValueItemProps) {
   return (
     <div>
       <div className="font-bold text-2xl text-[#B69D74] mb-4">{goal}</div>
-      <div>{description}</div>
+      <div className="text-[#253961]">{description}</div>
     </div>
   );
 }

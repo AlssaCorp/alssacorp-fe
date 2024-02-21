@@ -3,8 +3,8 @@ import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import React from "react";
-import { Header } from "@/components/header/header";
-import Footer from "@/components/footer/footer";
+import { Header } from "@/components/common/header/header";
+import Footer from "@/components/common/footer/footer";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Header />
         {children}
         <Footer />
-        <div className="fixed top-3/4 -translate-y-3/4 right-0 cursor-pointer">
+        <div className="fixed top-3/4 -translate-y-3/4 right-0 cursor-pointer z-[10]">
           <Image width={80} height={80} src="/img/wa.png" alt="wa-icon" />
         </div>
       </body>

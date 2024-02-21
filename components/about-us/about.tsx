@@ -7,7 +7,7 @@ import OurPortfolio from "./components/our-portfolio";
 
 export default function About() {
   return (
-    <div className="bg-[#FFF]">
+    <div className="bg-[#FFF] text-[#19253E]">
       <Hero />
       <AboutAlssa />
       <Hero2 />

@@ -8,14 +8,14 @@ export default function Ceo() {
   const route = useRouter();
   return (
     <div className="container ">
-      <div className="py-8 my-8 px-10 gap-4 border-y-2 grid grid-cols-4">
+      <div className="py-8 my-8 px-16 gap-4 border-y border-[#000] grid grid-cols-4">
         <Image
           src={"/img/dian-susanti-photo.png"}
           width={350}
           height={350}
           alt="dian-susanti"
         />
-        <div className="flex flex-col justify-end py-8">
+        <div className="flex flex-col justify-end py-8 text-[#000]">
           <div className="text-2xl font-bold">Dian Susanti, S.E</div>
           <p className="text-lg">President Director</p>
         </div>

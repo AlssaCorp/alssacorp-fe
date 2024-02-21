@@ -70,7 +70,7 @@ export default function ContactUs() {
       }}
       className="min-h-screen w-full flex flex-center"
     >
-      <div className="px-10 py-8 container max-w-[1000px] font-bold text-[#1F2839]">
+      <div className="px-16 py-8 container max-w-[1000px] font-bold text-[#1F2839]">
         <div className="text-2xl font-bold text-white mb-8 mt-8">
           Any Questions? Ask Our Assistance Here!
         </div>

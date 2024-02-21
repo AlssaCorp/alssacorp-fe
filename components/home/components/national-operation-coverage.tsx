@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NationalOperationConverage() {
   return (
-    <div className="py-8 container px-10">
+    <div className="py-8 container px-16">
       <div className="text-3xl pb-8">
         <h1 className="font-normal">National</h1>
         <h1 className="font-black">Operation Coverage</h1>

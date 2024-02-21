@@ -1,11 +1,11 @@
 export default function AboutAlssa() {
   return (
-    <div className="py-8 container px-10 ">
+    <div className="py-8 container px-16 ">
       <div className="text-3xl pb-8">
         <h1 className="font-normal">About</h1>
         <h1 className="font-black">Alssa Corp</h1>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 text-[#253961]">
         <p>
           Alssa Corp is a dynamic and forward-thinking technology company that
           is committed to shaping the future through innovation and cutting-edge

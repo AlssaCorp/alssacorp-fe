@@ -16,7 +16,7 @@ export default function Footer() {
   };
   return (
     <div className="bg-[#1F2839]">
-      <div className="container grid grid-cols-2 text-[#FFF] px-10 text-sm w-full  py-6">
+      <div className="container grid grid-cols-2 text-[#FFF] px-16 text-sm w-full  py-6">
         <div className="w-1/2">
           <div className="relative flex justify-center">
             <AlssaCorpIcon />
@@ -53,7 +53,7 @@ export default function Footer() {
               <span>info@alssacorp.co.id</span>
             </ContactInfoWrapper>
           </div>
-          <div className="flex gap-4 items-center mt-4">
+          <div className="flex gap-6 items-center mt-4">
             <p>Social Media</p>
             <LinkedInLogoIcon className="w-[18px] h-[18px]" />
             <InstagramLogoIcon className="w-[18px] h-[18px]" />

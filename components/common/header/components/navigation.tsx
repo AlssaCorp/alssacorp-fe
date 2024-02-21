@@ -41,7 +41,7 @@ export default function Navigation() {
               <TriangleDownIcon />
             </PopoverTrigger>
             <PopoverContent className="w-fit px-0 bg-[#D9D9D9] text-[#19253E] font-bolder py-2 text-md">
-              <div className="flex flex-col w-full justify-center">
+              <div className="flex flex-col w-full justify-center text-[#19253E]">
                 <div
                   onClick={() => handleAboutUseClick("/about-us")}
                   className="text-center mb-1 px-4 cursor-pointer"

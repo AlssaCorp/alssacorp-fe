@@ -1,51 +1,31 @@
 "use client";
 
-import { Gallery } from "react-grid-gallery";
+import { League_Spartan } from "next/font/google";
 
-const images = [
-  {
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    width: 450,
-    height: 300,
-    caption: "After Rain (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    width: 320,
-    height: 212,
-    alt: "Boats (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    width: 320,
-    height: 212,
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    width: 450,
-    height: 300,
-    caption: "After Rain (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    width: 320,
-    height: 212,
-    alt: "Boats (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    width: 320,
-    height: 212,
-  },
-];
+export const leagueSpartan = League_Spartan({
+  subsets: ["latin"],
+});
 
 export default function AlssaGallery() {
   return (
     <div className="bg-[#FFF]">
-      <div className="container px-10 py-8">
-        <div className=""></div>
-        <Gallery images={images} />
+      <div className="container px-16 py-8">
+        <div className={`mt-8 ${leagueSpartan.className} !text-3xl`}>
+          <h1 className="font-light text-[#1F2839]">Alssa&apos;s</h1>
+          <h1 className="text-[#F1C248] font-black">Gallery</h1>
+        </div>
+        <div className="bg-[#38619F] grid grid-cols-3 gap-12 p-12 mt-8">
+          {Array.from({ length: 10 }).map((el, id) => (
+            <div key={id}>
+              <GalleryItem />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
+}
+
+function GalleryItem() {
+  return <div className="w-100 aspect-square bg-[#D9D9D9]"></div>;
 }

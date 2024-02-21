@@ -6,7 +6,7 @@ import Portfolio from "./components/portfolio";
 
 export default function Home() {
   return (
-    <div className="relative bg-[#fff]">
+    <div className="relative bg-[#fff] text-[#19253E]">
       <Hero />
       <Glimpse />
       <NationalOperationConverage />
