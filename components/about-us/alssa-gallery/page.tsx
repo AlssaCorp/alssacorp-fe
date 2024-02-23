@@ -1,6 +1,7 @@
 "use client";
 
 import { Gallery, GalleryResponse } from "@/dao/galleryResponse";
+import getImageUrl from "@/utils/getImageUrl";
 import { League_Spartan } from "next/font/google";
 import Image from "next/image";
 import { FC } from "react";
@@ -41,7 +42,7 @@ const GalleryItem: FC<GalleryItemProps> = ({ gallery }) => {
   return (
     <div className="relative w-full aspect-square w-full bg-[#D9D9D9]">
       <Image
-        src={gallery.image}
+        src={getImageUrl(gallery.image)}
         fill
         sizes="500px"
         alt={gallery.name}

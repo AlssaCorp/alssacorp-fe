@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Statistic } from "@/dao/homepage";
+import getImageUrl from "@/utils/getImageUrl";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -22,7 +23,7 @@ const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
         <CardContent className="w-full text-[#FFF] p-0">
           <div className="w-full flex justify-center !rounded-[2em] overflow-hidden">
             <Image
-              src={coverageMap}
+              src={getImageUrl(coverageMap)}
               className="object-contain"
               alt="coverage-map"
               sizes="1200px"

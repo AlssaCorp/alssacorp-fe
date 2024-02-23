@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { FC, useState } from "react";
 import { Testimony } from "@/dao/homepage";
+import getImageUrl from "@/utils/getImageUrl";
 
 interface GlimpseProps {
   testimonies: Testimony[];
@@ -50,7 +51,7 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
                       className={`flex !h-[300px] aspect-square p-12 ${id === activeIndex && "!p-2"}`}
                     >
                       <Image
-                        src={testimony.brand_logo}
+                        src={getImageUrl(testimony.brand_logo)}
                         width={id === activeIndex ? 350 : 250}
                         height={id === activeIndex ? 350 : 250}
                         alt={testimony.brand}

@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Product } from "@/dao/products";
+import getImageUrl from "@/utils/getImageUrl";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -29,7 +30,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <CardContent className="text-center p-3">
         <div className="aspect-square relative mb-2">
           <Image
-            src={product.image}
+            src={getImageUrl(product.image)}
             alt="products-data"
             fill
             sizes="500px"

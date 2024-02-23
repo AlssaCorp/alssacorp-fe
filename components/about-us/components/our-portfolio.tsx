@@ -6,6 +6,7 @@ import Pagination from "@mui/material/Pagination";
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import { AboutUsClient } from "@/dao/aboutUs";
 import axios from "axios";
+import getImageUrl from "@/utils/getImageUrl";
 
 const OurPortfolio: FC = () => {
   const [data, setData] = useState<AboutUsClient>();
@@ -40,7 +41,7 @@ const OurPortfolio: FC = () => {
               >
                 <CardContent className="p-0 relative w-full h-full">
                   <Image
-                    src={client.logo}
+                    src={getImageUrl(client.logo)}
                     fill
                     sizes="500px"
                     alt={client.name}

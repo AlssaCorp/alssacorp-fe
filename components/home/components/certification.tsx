@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Certificate } from "@/dao/homepage";
+import getImageUrl from "@/utils/getImageUrl";
 import Image from "next/image";
 import React, { FC } from "react";
 
@@ -23,7 +24,7 @@ const Certification: FC<CertificationProps> = ({ certificates }) => {
             >
               <CardContent className="p-0">
                 <Image
-                  src={certificate.image}
+                  src={getImageUrl(certificate.image)}
                   width={400}
                   height={400}
                   alt={`Card ${index + 1}`}
