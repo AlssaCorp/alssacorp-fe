@@ -31,7 +31,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <Image
             src={product.image}
             alt="products-data"
-            layout="fill"
+            fill
+            sizes="500px"
             className="w-full h-full object-cover"
           />
         </div>

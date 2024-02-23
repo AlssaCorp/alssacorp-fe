@@ -36,8 +36,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Header />
         {children}
         <Footer />
-        <div className="fixed top-3/4 -translate-y-3/4 right-0 cursor-pointer z-[10]">
-          <Image width={80} height={80} src="/img/wa.png" alt="wa-icon" />
+        <div className="fixed top-3/4 -translate-y-3/4 right-0 cursor-pointer z-[10] w-[80px] h-[80px]">
+          <Image fill sizes="80px" src="/img/wa.png" alt="wa-icon" />
         </div>
       </body>
     </html>

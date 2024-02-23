@@ -42,9 +42,10 @@ const GalleryItem: FC<GalleryItemProps> = ({ gallery }) => {
     <div className="relative w-full aspect-square w-full bg-[#D9D9D9]">
       <Image
         src={gallery.image}
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="500px"
         alt={gallery.name}
+        className="object-cover¿"
       />
     </div>
   );

@@ -23,8 +23,9 @@ const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
           <div className="w-full flex justify-center !rounded-[2em] overflow-hidden">
             <Image
               src={coverageMap}
-              objectFit="contain"
+              className="object-contain"
               alt="coverage-map"
+              sizes="1200px"
               width={1200}
               height={800}
             />

@@ -41,9 +41,10 @@ const OurPortfolio: FC = () => {
                 <CardContent className="p-0 relative w-full h-full">
                   <Image
                     src={client.logo}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    sizes="500px"
                     alt={client.name}
+                    className="object-cover"
                   />
                 </CardContent>
               </Card>
@@ -57,7 +58,7 @@ const OurPortfolio: FC = () => {
               onChange={handleChange}
               count={data?.max_page}
               size="large"
-              color="primary"
+              color="standard"
             />
           </div>
         </div>

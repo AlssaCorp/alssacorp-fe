@@ -17,7 +17,7 @@ export default function HeroContainer({
       className={`w-full h-screen flex justify-end relative text-[#FFF] ${className}`}
     >
       <div className="absolute inset-0 z-0">
-        <Image src={src} layout="fill" objectFit="cover" alt="hero-1" />
+        <Image src={src} fill className="object-cover" alt="hero-1" priority />
         <div
           style={{
             position: "absolute",

@@ -41,8 +41,11 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
               className="h-full w-full max-w-[1200px] relative"
             >
               {testimonies.map((testimony, id) => (
-                <div className="!h-[350px]" key={testimony.brand}>
-                  <SwiperSlide className="!flex !justify-center w-full items-center mb-8">
+                <div className="!h-[350px]" key={`${id} ${testimony.brand}`}>
+                  <SwiperSlide
+                    className="!flex !justify-center w-full items-center mb-8"
+                    key={`${id} ${testimony.brand}`}
+                  >
                     <div
                       className={`flex !h-[300px] aspect-square p-12 ${id === activeIndex && "!p-2"}`}
                     >
