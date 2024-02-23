@@ -1,8 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Certificate } from "@/dao/homepage";
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-export default function Certification() {
+interface CertificationProps {
+  certificates: Certificate[];
+}
+
+const Certification: FC<CertificationProps> = ({ certificates }) => {
   return (
     <div className="bg-[#1F283911]">
       <div className="py-8  container px-16">
@@ -11,14 +16,14 @@ export default function Certification() {
           <h1 className="font-black">Certifications</h1>
         </div>
         <div className="grid grid-cols-3 gap-12 text-center">
-          {Array.from({ length: 3 }).map((_, index) => (
+          {certificates.map((certificate, index) => (
             <Card
-              key={index}
+              key={`${index} ${certificate.name}`}
               className="aspect-square flex items-center justify-center"
             >
               <CardContent>
                 <Image
-                  src="/img/total-logo.png"
+                  src={certificate.image}
                   width={400}
                   height={400}
                   alt={`Card ${index + 1}`}
@@ -30,7 +35,7 @@ export default function Certification() {
       </div>
     </div>
   );
-}
+};
 
 interface CertificationItem {
   children: React.ReactNode;
@@ -41,3 +46,6 @@ interface CertificationItem {
 export function CertificationItem() {
   return <div></div>;
 }
+
+Certification.displayName = "Certification";
+export default Certification;

@@ -6,16 +6,13 @@ const nextConfig = {
         protocol: "http",
         hostname: "localhost",
         port: "8000",
-        pathname: "/media",
-      },
-      {
-        protocol: "http",
-        hostname: "web-1",
-        port: "8000",
-        pathname: "/media",
+        pathname: "/media/**",
       },
     ],
   },
+  output: "standalone",
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 export default nextConfig;

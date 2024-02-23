@@ -14,10 +14,13 @@ const Home: FC<HomeProps> = ({ data }) => {
   return (
     <div className="relative bg-[#fff] text-[#19253E]">
       <Hero />
-      <Glimpse />
-      <NationalOperationConverage coverageMap={data.coverage_map} />
-      <Certification />
-      <Portfolio />
+      <Glimpse testimonies={data.testimonies} />
+      <NationalOperationConverage
+        statistics={data.statistics}
+        coverageMap={data.coverage_map}
+      />
+      <Certification certificates={data.certificates} />
+      <Portfolio portfolio={data.portfolio} />
     </div>
   );
 };

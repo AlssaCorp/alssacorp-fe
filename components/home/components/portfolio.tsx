@@ -1,7 +1,23 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { FC } from "react";
 
-export default function Portfolio() {
+interface PortfolioProps {
+  portfolio: string;
+}
+
+const Portfolio: FC<PortfolioProps> = ({ portfolio }) => {
+  const downloadPortfolio = () => {
+    if (
+      portfolio &&
+      (portfolio.startsWith("http://") || portfolio.startsWith("https://"))
+    ) {
+      window.location.href = portfolio;
+    }
+  };
+
   return (
     <div className="py-8 container px-16">
       <div className="text-3xl pb-8">
@@ -21,6 +37,7 @@ export default function Portfolio() {
         <Button
           variant="default"
           className="text-[#FFF] bg-[#1F2839] px-6 py-2 w-fit"
+          onClick={downloadPortfolio}
         >
           <span className="pr-2">See Here!</span>
           <ArrowRightIcon fontSize={25} />
@@ -28,4 +45,6 @@ export default function Portfolio() {
       </div>
     </div>
   );
-}
+};
+
+export default Portfolio;

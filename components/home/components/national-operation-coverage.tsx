@@ -1,40 +1,46 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Statistic } from "@/dao/homepage";
 import Image from "next/image";
 import { FC } from "react";
 
 interface NationalOperationConverageProps {
   coverageMap: string;
+  statistics: Statistic[];
 }
 
 const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
   coverageMap,
+  statistics,
 }) => {
-  console.log(coverageMap);
   return (
     <div className="py-8 container px-16">
       <div className="text-3xl pb-8">
         <h1 className="font-normal">National</h1>
         <h1 className="font-black">Operation Coverage</h1>
       </div>
-      <div className="flex justify-center">
-        <Card className="bg-[#E2E5E8] h-full w-fit flex justify-center !rounded-[2em]">
-          <CardContent className="w-full flex justify-end relative text-[#FFF] p-0">
+      <Card className="border-none h-full w-full shadow-none">
+        <CardContent className="w-full text-[#FFF] p-0">
+          <div className="w-full flex justify-center !rounded-[2em] overflow-hidden">
             <Image
               src={coverageMap}
-              width={1200}
-              height={700}
               objectFit="contain"
-              alt="hero-1"
+              alt="coverage-map"
+              width={1200}
+              height={800}
             />
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardContent>
+      </Card>
       <div className="flex w-full justify-center pt-8">
         <div className="grid grid-cols-4 gap-6">
-          <BannerCard number={13} description="Regional Support" />
-          <BannerCard number={26} description="Clients & Partners" />
-          <BannerCard number={26} description="Projects" />
-          <BannerCard number={7} description="Awards & Recognitions" />
+          {statistics.map((statistic, id) => (
+            <div key={id}>
+              <BannerCard
+                number={statistic.number}
+                description={statistic.name}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

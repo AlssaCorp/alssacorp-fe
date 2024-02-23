@@ -9,18 +9,14 @@ import {
   Autoplay,
 } from "swiper/modules";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { FC, useState } from "react";
+import { Testimony } from "@/dao/homepage";
 
-const clients = [
-  { icon: "/img/pertamina-logo.png", key: "1" },
-  { icon: "/img/badaklng-logo.png", key: "2" },
-  { icon: "/img/total-logo.png", key: "3" },
-  { icon: "/img/pertamina-logo.png", key: "4" },
-  { icon: "/img/badaklng-logo.png", key: "5" },
-  { icon: "/img/total-logo.png", key: "6" },
-];
+interface GlimpseProps {
+  testimonies: Testimony[];
+}
 
-export default function Glimpse() {
+const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -31,30 +27,30 @@ export default function Glimpse() {
             <h1 className="font-normal">Glimpse</h1>
             <h1 className="font-black">of Our Satisfied Clients</h1>
           </div>
-          <div className="flex justify-center">
+          <div className="">
             <Swiper
               loop={true}
               centeredSlides={true}
               modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
-              slidesPerView={3}
-              navigation
+              slidesPerView={testimonies.length < 3 ? 1 : 3}
+              initialSlide={0}
               autoplay={{ delay: 3000 }}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
               onSlideChange={(e) => setActiveIndex(e.realIndex)}
-              className="flex h-full w-full justify-center items-center max-w-[1200px] relative"
+              className="h-full w-full max-w-[1200px] relative"
             >
-              {clients.map((client, id) => (
-                <div className="!h-[350px]" key={client.key}>
+              {testimonies.map((testimony, id) => (
+                <div className="!h-[350px]" key={testimony.brand}>
                   <SwiperSlide className="!flex !justify-center w-full items-center mb-8">
                     <div
                       className={`flex !h-[300px] aspect-square p-12 ${id === activeIndex && "!p-2"}`}
                     >
                       <Image
-                        src={client.icon}
-                        width={id === activeIndex ? 300 : 250}
-                        height={id === activeIndex ? 300 : 250}
-                        alt={`icon-${id}`}
+                        src={testimony.brand_logo}
+                        width={id === activeIndex ? 350 : 250}
+                        height={id === activeIndex ? 350 : 250}
+                        alt={testimony.brand}
                       />
                     </div>
                   </SwiperSlide>
@@ -64,23 +60,19 @@ export default function Glimpse() {
           </div>
           <div className="pt-8">
             <p className="font-semibold italic text-center">
-              Provision Of Radio Trunking System, Subscriber, ITS Supporting
-              Infrastructure at PT Badak NGL
+              {testimonies[activeIndex].heading}
             </p>
           </div>
           <div className="pt-8 w-full flex justify-center">
             <p className="max-w-[1200px]">
-              With a track record of excellence and innovation, Alssa Corporindo
-              Services has been entrusted with the task of implementing
-              cutting-edge communication systems at PT Badak NGL. Through their
-              expertise and commitment to delivering reliable and efficient
-              solutions, Alssa Corporindo Services aims to enhance the
-              communication infrastructure at PT Badak NGL, enabling seamless
-              connectivity and optimized operations for their clients.
+              {testimonies[activeIndex].description}
             </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+Glimpse.displayName = "Glimpse";
+export default Glimpse;
