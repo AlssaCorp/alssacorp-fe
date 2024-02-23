@@ -1,12 +1,19 @@
 "use client";
 
+import { Gallery, GalleryResponse } from "@/dao/galleryResponse";
 import { League_Spartan } from "next/font/google";
+import Image from "next/image";
+import { FC } from "react";
 
 export const leagueSpartan = League_Spartan({
   subsets: ["latin"],
 });
 
-export default function AlssaGallery() {
+interface AlssaGalleryProps {
+  data: GalleryResponse;
+}
+
+const AlssaGallery: FC<AlssaGalleryProps> = ({ data }) => {
   return (
     <div className="bg-[#FFF]">
       <div className="container px-16 py-8">
@@ -15,17 +22,33 @@ export default function AlssaGallery() {
           <h1 className="text-[#F1C248] font-black">Gallery</h1>
         </div>
         <div className="bg-[#38619F] grid grid-cols-3 gap-12 p-12 mt-8">
-          {Array.from({ length: 10 }).map((el, id) => (
-            <div key={id}>
-              <GalleryItem />
+          {data.galleries.map((gallery) => (
+            <div key={gallery.name}>
+              <GalleryItem gallery={gallery} />
             </div>
           ))}
         </div>
       </div>
     </div>
   );
+};
+
+interface GalleryItemProps {
+  gallery: Gallery;
 }
 
-function GalleryItem() {
-  return <div className="w-100 aspect-square bg-[#D9D9D9]"></div>;
-}
+const GalleryItem: FC<GalleryItemProps> = ({ gallery }) => {
+  return (
+    <div className="relative w-full aspect-square w-full bg-[#D9D9D9]">
+      <Image
+        src={gallery.image}
+        layout="fill"
+        objectFit="cover"
+        alt={gallery.name}
+      />
+    </div>
+  );
+};
+
+AlssaGallery.displayName = "AlssaGallery";
+export default AlssaGallery;

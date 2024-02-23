@@ -5,34 +5,34 @@ import { useRouter } from "next/navigation";
 
 const imageCoverData = [
   {
-    url: "/img/products/public-trucking.jpg",
-    alt: "public trucking",
     title: "Public Trunking",
+    imgUrl: "/img/products/public-trucking.jpg",
+    categoryUrl: "/public_trunking",
     className:
       "linear-gradient(to bottom, rgba(182, 157, 116, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#253961]",
   },
   {
-    url: "/img/products/radio-link-data.jpg",
-    alt: "radio link data comm scada/telementary",
     title: "Radio Link Data Comm SCADA / Telemetry",
+    imgUrl: "/img/products/radio-link-data.jpg",
+    categoryUrl: "/radio_link",
     className:
       "linear-gradient(to bottom, rgba(31, 40, 50, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#FFF]",
   },
   {
-    url: "/img/products/surveillance-city.jpg",
-    alt: "surveillance security system sensor monitoring and aplication software",
     title:
       "Surveillance Security System Sensor Monitoring and Application Software",
+    imgUrl: "/img/products/surveillance-city.jpg",
+    categoryUrl: "/surveillance",
     className:
       "linear-gradient(to bottom, rgba(31, 40, 50, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#FFF]",
   },
   {
-    url: "/img/products/radio-trucking-system.jpg",
-    alt: "radio trunking system",
     title: "Radio Trunking System",
+    imgUrl: "/img/products/radio-trucking-system.jpg",
+    categoryUrl: "/radio_trunking",
     className:
       "linear-gradient(to bottom, rgba(182, 157, 116, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#253961]",
@@ -67,8 +67,8 @@ export default function Products() {
           return (
             <div key={idx}>
               <ImageCover
-                url={data.url}
-                alt={data.url}
+                imgUrl={data.imgUrl}
+                categoryUrl={data.categoryUrl}
                 title={data.title}
                 className={data.className}
                 textClassName={data.textClassName}
@@ -92,17 +92,17 @@ export default function Products() {
 }
 
 interface ImageCoverProps {
-  url: string;
-  alt: string;
   title: string;
+  imgUrl: string;
+  categoryUrl: string;
   className: string;
   textClassName: string;
 }
 
 function ImageCover({
-  url,
-  alt,
+  imgUrl,
   title,
+  categoryUrl,
   className,
   textClassName,
 }: ImageCoverProps) {
@@ -111,15 +111,15 @@ function ImageCover({
     <div
       className="w-full h-full relative cursor-pointer"
       onClick={() => {
-        route.push("/products/list");
+        route.push(`/products/${categoryUrl}`);
       }}
     >
       <Image
         className="w-full h-full z-[2]"
-        src={url}
+        src={imgUrl}
         width={2000}
         height={2000}
-        alt={alt}
+        alt={title}
       />
       <div
         style={{

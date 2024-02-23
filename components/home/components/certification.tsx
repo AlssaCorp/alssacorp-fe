@@ -19,9 +19,9 @@ const Certification: FC<CertificationProps> = ({ certificates }) => {
           {certificates.map((certificate, index) => (
             <Card
               key={`${index} ${certificate.name}`}
-              className="aspect-square flex items-center justify-center"
+              className="aspect-square flex items-center justify-center p-0"
             >
-              <CardContent>
+              <CardContent className="p-0">
                 <Image
                   src={certificate.image}
                   width={400}

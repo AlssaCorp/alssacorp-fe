@@ -54,7 +54,7 @@ export default function Footer() {
             </ContactInfoWrapper>
           </div>
           <div className="flex gap-6 items-center mt-4">
-            <p>Social Media</p>
+            <p className="text-[#BBB]">Social Media</p>
             <LinkedInLogoIcon className="w-[18px] h-[18px]" />
             <InstagramLogoIcon className="w-[18px] h-[18px]" />
             <TwitterLogoIcon className="w-[18px] h-[18px]" />

@@ -32,7 +32,7 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
               loop={true}
               centeredSlides={true}
               modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
-              slidesPerView={testimonies.length < 3 ? 1 : 3}
+              slidesPerView={testimonies.length <= 3 ? 1 : 3}
               initialSlide={0}
               autoplay={{ delay: 3000 }}
               pagination={{ clickable: true }}

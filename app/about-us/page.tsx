@@ -1,5 +1,5 @@
 import About from "@/components/about-us/about";
 
-export default function AboutPage() {
+export default async function AboutPage() {
   return <About />;
 }

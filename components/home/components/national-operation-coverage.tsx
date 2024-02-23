@@ -33,8 +33,8 @@ const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
       </Card>
       <div className="flex w-full justify-center pt-8">
         <div className="grid grid-cols-4 gap-6">
-          {statistics.map((statistic, id) => (
-            <div key={id}>
+          {statistics.map((statistic) => (
+            <div key={statistic.name}>
               <BannerCard
                 number={statistic.number}
                 description={statistic.name}

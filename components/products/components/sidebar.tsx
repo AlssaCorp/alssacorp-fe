@@ -1,35 +1,84 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import { Dispatch, FC, MouseEventHandler, SetStateAction } from "react";
 
-const checkData = [
-  { id: "motorola", text: "Motorola" },
-  {
-    id: "kirisun",
-    text: "Kirisun",
-  },
-];
+interface SidebarProps {
+  brands: string[];
+  subCategory: string[];
+  setFilteredBrands: Dispatch<SetStateAction<string[]>>;
+  setFilteredSubCategory: Dispatch<SetStateAction<string[]>>;
+}
 
-export default function Sidebar() {
+const Sidebar: FC<SidebarProps> = ({
+  brands,
+  subCategory,
+  setFilteredBrands,
+  setFilteredSubCategory,
+}) => {
+  if (brands.length === 0 && subCategory.length === 0) {
+    return <></>;
+  }
+
   return (
     <div className="flex flex-col gap-2 bg-[#1E29390D] rounded-lg w-[300px] p-4">
-      <div className="text-lg font-bold text-[#253961]">Brand</div>
-      {checkData.map((data, id) => (
-        <div key={id}>
-          <Check id={data.id} text={data.text} />
+      {brands.length > 0 && (
+        <div className="text-lg font-bold text-[#253961]">Brand</div>
+      )}
+      {brands.map((brand) => (
+        <div key={brand}>
+          <Check
+            id={brand}
+            text={brand}
+            onClick={() => {
+              setFilteredBrands((state) => {
+                if (state.includes(brand)) {
+                  return state.filter((val) => val != brand);
+                } else {
+                  return [...state, brand];
+                }
+              });
+            }}
+          />
+        </div>
+      ))}
+      {subCategory.length > 0 && (
+        <div className="text-lg font-bold text-[#253961]">Sub Category</div>
+      )}
+      {subCategory.map((category) => (
+        <div key={category}>
+          <Check
+            id={category}
+            text={category}
+            onClick={() => {
+              setFilteredSubCategory((state) => {
+                if (state.includes(category)) {
+                  return state.filter((val) => val != category);
+                } else {
+                  return [...state, category];
+                }
+              });
+            }}
+          />
         </div>
       ))}
     </div>
   );
-}
+};
 
 interface CheckProps {
   id: string;
   text: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-function Check({ id, text }: CheckProps) {
+function Check({ id, text, onClick }: CheckProps) {
   return (
     <div className="items-top flex space-x-2">
-      <Checkbox id={id} className="border-[#BAC7D5]" />
+      <Checkbox
+        id={id}
+        value={0}
+        className="border-[#BAC7D5]"
+        onClick={onClick}
+      />
       <div className="grid gap-1.5 leading-none">
         <label
           htmlFor={id}
@@ -41,3 +90,6 @@ function Check({ id, text }: CheckProps) {
     </div>
   );
 }
+
+Sidebar.displayName = "Sidebar";
+export default Sidebar;

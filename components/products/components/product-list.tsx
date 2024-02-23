@@ -1,37 +1,48 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Product } from "@/dao/products";
 import Image from "next/image";
+import { FC } from "react";
 
-export default function ProductList() {
+interface ProductsListProps {
+  products: Product[];
+}
+
+const ProductList: FC<ProductsListProps> = ({ products }) => {
   return (
     <div className="pl-4 w-full grid grid-cols-4 gap-4">
-      {Array.from({ length: 5 }).map((_, idx) => (
-        <div key={idx}>
-          <ProductCard />
+      {products.map((product) => (
+        <div key={product.name}>
+          <ProductCard product={product} />
         </div>
       ))}
     </div>
   );
+};
+
+interface ProductCardProps {
+  product: Product;
 }
 
-function ProductCard() {
+const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <Card>
+    <Card className="h-full">
       <CardContent className="text-center p-3">
         <div className="aspect-square relative mb-2">
           <Image
-            src="/img/products/public-trucking.jpg"
+            src={product.image}
             alt="products-data"
             layout="fill"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="text-[#253961] text-sm">
-          <div className="font-medium">
-            (HT) Handy Talky Tait tp 8100 800 mhz
-          </div>
-          <div className="font-bold">Motorola</div>
+          <div className="font-medium">{product.name}</div>
+          <div className="font-bold">{product.brand}</div>
         </div>
       </CardContent>
     </Card>
   );
-}
+};
+
+ProductList.displayName = "ProductList";
+export default ProductList;

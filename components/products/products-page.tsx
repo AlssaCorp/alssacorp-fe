@@ -4,9 +4,38 @@ import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import ProductList from "./components/product-list";
 import Sidebar from "./components/sidebar";
+import { Product, ProductsResponse } from "@/dao/products";
+import { FC, useEffect, useState } from "react";
 
-export default function ProductsPage() {
+interface ProductsPageProps {
+  data: ProductsResponse;
+}
+
+const ProductsPage: FC<ProductsPageProps> = ({ data }) => {
   const route = useRouter();
+  const [filteredBrands, setFilteredBrands] = useState<string[]>([]);
+  const [filteredSubCategory, setFilteredSubCategory] = useState<string[]>([]);
+  const [currentProducts, setCurrentProducts] = useState<Product[]>(
+    data.products,
+  );
+
+  useEffect(() => {
+    if (!filteredBrands.length && !filteredSubCategory.length) {
+      setCurrentProducts(data.products);
+      return;
+    }
+    let tempProducts: Product[] = data.products;
+    if (filteredBrands.length)
+      tempProducts = tempProducts.filter((product) =>
+        filteredBrands.includes(product.brand),
+      );
+    if (filteredSubCategory.length)
+      tempProducts = tempProducts.filter((product) =>
+        filteredSubCategory.includes(product.sub_category),
+      );
+    setCurrentProducts(tempProducts);
+  }, [data.products, filteredBrands, filteredSubCategory]);
+
   return (
     <div className="bg-[#FFF]">
       <div className="!bg-[#253D6C99] text-[#FFF]">
@@ -23,8 +52,13 @@ export default function ProductsPage() {
         </div>
       </div>
       <div className="flex container px-16 py-8">
-        <Sidebar />
-        <ProductList />
+        <Sidebar
+          setFilteredBrands={setFilteredBrands}
+          setFilteredSubCategory={setFilteredSubCategory}
+          brands={data.brands}
+          subCategory={data.sub_categories}
+        />
+        <ProductList products={currentProducts} />
       </div>
       <div className="w-full pb-8 flex justify-center">
         <div className="grid grid-cols-2 gap-4">
@@ -56,4 +90,7 @@ export default function ProductsPage() {
       </div>
     </div>
   );
-}
+};
+
+ProductsPage.displayName = "ProductsPage";
+export default ProductsPage;
