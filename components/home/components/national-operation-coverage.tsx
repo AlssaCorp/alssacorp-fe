@@ -1,7 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { FC } from "react";
 
-export default function NationalOperationConverage() {
+interface NationalOperationConverageProps {
+  coverageMap: string;
+}
+
+const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
+  coverageMap,
+}) => {
+  console.log(coverageMap);
   return (
     <div className="py-8 container px-16">
       <div className="text-3xl pb-8">
@@ -12,7 +20,7 @@ export default function NationalOperationConverage() {
         <Card className="bg-[#E2E5E8] h-full w-fit flex justify-center !rounded-[2em]">
           <CardContent className="w-full flex justify-end relative text-[#FFF] p-0">
             <Image
-              src="/img/indonesia-map.png"
+              src={coverageMap}
               width={1200}
               height={700}
               objectFit="contain"
@@ -31,7 +39,7 @@ export default function NationalOperationConverage() {
       </div>
     </div>
   );
-}
+};
 
 interface BannerCardProps {
   number: number;
@@ -50,3 +58,7 @@ export function BannerCard({ number, description }: BannerCardProps) {
     </Card>
   );
 }
+
+NationalOperationConverage.displayName;
+("NationalOperationCoverage");
+export default NationalOperationConverage;
