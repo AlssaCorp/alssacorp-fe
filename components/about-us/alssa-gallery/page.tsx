@@ -46,7 +46,8 @@ const GalleryItem: FC<GalleryItemProps> = ({ gallery }) => {
         fill
         sizes="500px"
         alt={gallery.name}
-        className="object-cover¿"
+        className="object-cover"
+        unoptimized
       />
     </div>
   );
