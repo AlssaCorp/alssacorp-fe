@@ -7,7 +7,7 @@ export default function CeoMessage() {
         <div>
           <div className="aspect-square">
             <Image
-              src="/img/dian-susanti-photo.png"
+              src="/img/ceo/dian-susanti-photo.png"
               width={400}
               height={400}
               alt="dian susanti"

@@ -54,6 +54,7 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
                         src={getImageUrl(testimony.brand_logo)}
                         width={id === activeIndex ? 350 : 250}
                         height={id === activeIndex ? 350 : 250}
+                        className="object-cover"
                         alt={testimony.brand}
                       />
                     </div>

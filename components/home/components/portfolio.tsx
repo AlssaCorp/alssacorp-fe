@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import getImageUrl from "@/utils/getImageUrl";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { FC } from "react";
 
@@ -14,7 +15,7 @@ const Portfolio: FC<PortfolioProps> = ({ portfolio }) => {
       portfolio &&
       (portfolio.startsWith("http://") || portfolio.startsWith("https://"))
     ) {
-      window.location.href = portfolio;
+      window.location.href = getImageUrl(portfolio);
     }
   };
 

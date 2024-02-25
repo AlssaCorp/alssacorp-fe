@@ -13,7 +13,12 @@ export default function Diary() {
       </div>
       <div className="relative">
         <div className="relative">
-          <Image src="/img/hero-5.png" width={2000} height={2000} alt="diary" />
+          <Image
+            src="/img/hero/hero-5.png"
+            width={2000}
+            height={2000}
+            alt="diary"
+          />
           <div
             style={{
               position: "absolute",

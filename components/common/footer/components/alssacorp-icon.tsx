@@ -6,7 +6,6 @@ export default function AlssaCorpIcon() {
       viewBox="0 0 235 158"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      //   xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <path
         d="M0.354248 0H234.354V122.702L13.9796 158L0.354248 0Z"

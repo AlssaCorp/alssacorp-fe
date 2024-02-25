@@ -168,7 +168,7 @@ export default function ContactUs() {
         >
           <div className="max-w-[400px] p-8">
             <Image
-              src={"/img/alert/success.png"}
+              src={"/img/icon/alert-success.png"}
               sizes="500px"
               width={400}
               height={400}

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Hero() {
   const route = useRouter();
   return (
-    <HeroContainer src="/img/hero-1.png">
+    <HeroContainer src="/img/hero/hero-1.png" className="!justify-center">
       <div className="container w-full flex !justify-end h-full px-16">
         <div className="w-3/5 flex items-center text-end relative z-10">
           <h1 className="!text-8xl font-bold ">

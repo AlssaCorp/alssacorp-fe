@@ -40,6 +40,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         <div className="text-[#253961] text-sm">
           <div className="font-medium">{product.name}</div>
           <div className="font-bold">{product.brand}</div>
+          {product.sub_category && (
+            <div className="font-medium">{product.sub_category}</div>
+          )}
         </div>
       </CardContent>
     </Card>
