@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import getImageUrl from "@/utils/getImageUrl";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 import { FC } from "react";
 
 interface PortfolioProps {
@@ -35,14 +35,14 @@ const Portfolio: FC<PortfolioProps> = ({ portfolio }) => {
             solutions, Alssa Corporindo Services aims{" "}
           </p>
         </div>
-        <Button
-          variant="default"
-          className="text-[#FFF] bg-[#1F2839] px-6 py-2 w-fit"
+        <Link
+          href={getImageUrl(portfolio)}
+          className="text-[#FFF] bg-[#1F2839] px-6 py-2 w-fit flex justify-center items-center rounded-lg text-sm"
           onClick={downloadPortfolio}
         >
           <span className="pr-2">See Here!</span>
           <ArrowRightIcon fontSize={25} />
-        </Button>
+        </Link>
       </div>
     </div>
   );

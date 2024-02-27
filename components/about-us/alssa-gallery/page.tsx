@@ -18,7 +18,7 @@ const AlssaGallery: FC<AlssaGalleryProps> = ({ data }) => {
   return (
     <div className="bg-[#FFF]">
       <div className="container px-16 py-8">
-        <div className={`mt-8 ${leagueSpartan.className} !text-3xl`}>
+        <div className={`mt-8 ${leagueSpartan.className} !text-5xl`}>
           <h1 className="font-light text-[#1F2839]">Alssa&apos;s</h1>
           <h1 className="text-[#F1C248] font-black">Gallery</h1>
         </div>
@@ -46,7 +46,7 @@ const GalleryItem: FC<GalleryItemProps> = ({ gallery }) => {
         fill
         sizes="500px"
         alt={gallery.name}
-        className="object-cover¿"
+        className="object-cover"
       />
     </div>
   );

@@ -40,7 +40,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data }) => {
     <div className="bg-[#FFF]">
       <div className="!bg-[#253D6C99] text-[#FFF]">
         <div className="container flex justify-center py-8 px-16">
-          <div className="bg-[#b4c2dd70] rounded-[20px] flex flex-col gap-4 px-4 text-center max-w-[800px] py-4">
+          <div className="bg-[#b4c2dd70] rounded-[20px] flex flex-col gap-4 px-6 text-center max-w-[800px] py-4">
             <div className="font-bold text-xl">Public Trunking</div>
             <div className="font-medium">
               Introducing public trunking—a game-changing communication solution
