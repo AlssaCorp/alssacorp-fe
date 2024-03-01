@@ -11,3 +11,9 @@ export interface Product {
   name: string;
   image: string;
 }
+
+export interface HeadlineData {
+  key: string;
+  title: string;
+  headline: string;
+}

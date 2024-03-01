@@ -27,8 +27,15 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
     <Card className="h-full">
-      <CardContent className="text-center p-3">
-        <div className="aspect-square relative mb-2">
+      <CardContent className="text-center p-0 relative">
+        <div className="absolute top-2 left-2 z-[2] text-xs">
+          <div className="p-1 rounded-lg bg-[#F3F4F5A6] text-[#253961]">
+            {product.sub_category && (
+              <div className="font-bold">{product.sub_category}</div>
+            )}
+          </div>
+        </div>
+        <div className="aspect-square relative">
           <Image
             src={getImageUrl(product.image)}
             alt="products-data"
@@ -37,12 +44,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="text-[#253961] text-sm">
-          <div className="font-medium">{product.name}</div>
+        <div className="text-[#253961] text-sm text-start pl-2 py-2 bg-[#F3F4F5]">
           <div className="font-bold">{product.brand}</div>
-          {product.sub_category && (
-            <div className="font-medium">{product.sub_category}</div>
-          )}
+          <div className="font-medium">{product.name}</div>
         </div>
       </CardContent>
     </Card>

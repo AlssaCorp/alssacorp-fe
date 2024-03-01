@@ -12,5 +12,5 @@ export default async function ProductsDetailsPage({
   const { data } = await backendAxios.get<ProductsResponse>(
     `/products/${category}`,
   );
-  return <ProductsPage data={data} />;
+  return <ProductsPage data={data} category={category} />;
 }
