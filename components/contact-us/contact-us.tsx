@@ -84,16 +84,19 @@ const ContactUs: FC = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(12, 33, 65, 0.5), rgba(12, 33, 65, 0.5)), url('/img/contact-us/bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="min-h-screen w-full flex flex-center"
-    >
-      <div className="px-16 py-8 container max-w-[1000px] font-bold text-[#1F2839]">
+    <div className="min-h-screen w-full flex flex-center relative">
+      <div className="absolute inset-0 z-[-1]">
+        <Image
+          src="/img/contact-us/bg.png"
+          alt="Contact Us Background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-[rgba(12,33,65,0.5)] backdrop-blur-sm"></div>
+      </div>
+      <div className="px-16 py-8 container max-w-[1000px] z-10 relative">
         <div className="text-2xl font-bold text-white mb-8 mt-12 text-center">
           Any Questions? Ask Our Assistance Here!
         </div>
@@ -148,7 +151,7 @@ const ContactUs: FC = () => {
       {displaySuccessModal && (
         <div
           onClick={() => setDisplaySuccessModal(false)}
-          className="z-[100] fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center cursor-pointer"
+          className="z-[100] fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex justify-center items-center cursor-pointer"
         >
           <div className="max-w-[400px] p-8">
             <Image
