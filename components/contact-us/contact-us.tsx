@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
 import axios from "axios";
 import Image from "next/image";
+import ContactUsInput from "./contact-us-input";
 
 interface ContactUsForm {
   name: string;
@@ -16,7 +15,7 @@ interface ContactUsForm {
   inquiry: string;
 }
 
-export default function ContactUs() {
+const ContactUs: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displaySuccessModal, setDisplaySuccessModal] = useState(false);
   const [form, setForm] = useState<ContactUsForm>({
@@ -95,70 +94,55 @@ export default function ContactUs() {
       className="min-h-screen w-full flex flex-center"
     >
       <div className="px-16 py-8 container max-w-[1000px] font-bold text-[#1F2839]">
-        <div className="text-2xl font-bold text-white mb-8 mt-8">
+        <div className="text-2xl font-bold text-white mb-8 mt-12 text-center">
           Any Questions? Ask Our Assistance Here!
         </div>
-        <div className="grid grid-cols-1 gap-3">
-          <Input
-            placeholder="Name"
-            type="text"
-            className="bg-[#D0D9EA] border-[#ABDDB7] h-[41px] max-w-[800px]"
+        <div className="grid grid-cols-2 gap-8">
+          <ContactUsInput
+            label="Name"
             value={form.name}
             onChange={(e) => {
               setForm((state) => ({ ...state, name: e.target.value }));
             }}
           />
-          <Input
-            placeholder="Email"
+          <ContactUsInput
+            label="Email"
             value={form.email}
-            type="email"
-            className="bg-[#D0D9EA] border-[#ABDDB7] h-[41px] max-w-[800px]"
             onChange={(e) => {
               setForm((state) => ({ ...state, email: e.target.value }));
             }}
           />
-          <Input
-            placeholder="Contact Number"
-            type="tel"
-            pattern="[0-9]{12}"
+          <ContactUsInput
+            label="Contact Number"
             value={form.phone_number}
-            className="bg-[#D0D9EA] border-[#ABDDB7] h-[41px] max-w-[800px]"
             onChange={(e) => {
               setForm((state) => ({ ...state, phone_number: e.target.value }));
             }}
           />
-          <Input
-            placeholder="Subject"
-            type="text"
+          <ContactUsInput
+            label="Subject"
             value={form.subject}
-            className="bg-[#D0D9EA] border-[#ABDDB7] h-[41px] max-w-[800px]"
             onChange={(e) => {
-              setForm((state) => ({
-                ...state,
-                subject: e.target.value,
-              }));
+              setForm((state) => ({ ...state, subject: e.target.value }));
             }}
           />
-          <Textarea
-            placeholder="Message"
-            className="bg-[#D0D9EA] border-[#ABDDB7] h-[250px] mt-8"
+          <ContactUsInput
+            className="col-span-2"
+            label="Message"
             value={form.inquiry}
             onChange={(e) => {
-              setForm((state) => ({
-                ...state,
-                inquiry: e.target.value,
-              }));
+              setForm((state) => ({ ...state, inquiry: e.target.value }));
             }}
           />
-          <div className="flex justify-end">
-            <Button
-              className="bg-[#30AA2D] font-bold"
-              onClick={submitFormHandler}
-              disabled={!checkIsFormValid() || isLoading}
-            >
-              Send
-            </Button>
-          </div>
+        </div>
+        <div className="flex justify-end mt-4">
+          <Button
+            className="font-bold !bg-[#FFF] !text-[#000] px-8"
+            onClick={submitFormHandler}
+            disabled={!checkIsFormValid() || isLoading}
+          >
+            Send Message
+          </Button>
         </div>
       </div>
       {displaySuccessModal && (
@@ -183,4 +167,7 @@ export default function ContactUs() {
       )}
     </div>
   );
-}
+};
+
+ContactUs.displayName = "ContactUs";
+export default ContactUs;

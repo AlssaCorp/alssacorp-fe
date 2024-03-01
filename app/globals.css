@@ -101,3 +101,25 @@
 .swiper-button-prev::after {
   display: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  transition-delay: 9999s;
+  -webkit-text-fill-color: #AAAEB6 !important;
+}
+
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus,
+input:-moz-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  transition-delay: 9999s;
+}
+
+input:focus,
+input:active {
+  -webkit-text-fill-color: #FFF !important;
+}
