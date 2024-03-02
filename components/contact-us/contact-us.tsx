@@ -8,7 +8,8 @@ import Image from "next/image";
 import ContactUsInput from "./contact-us-input";
 
 interface ContactUsForm {
-  name: string;
+  first_name: string;
+  last_name: string;
   email: string;
   phone_number: string;
   subject: string;
@@ -19,7 +20,8 @@ const ContactUs: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displaySuccessModal, setDisplaySuccessModal] = useState(false);
   const [form, setForm] = useState<ContactUsForm>({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
     phone_number: "",
     subject: "",
@@ -62,12 +64,20 @@ const ContactUs: FC = () => {
     setIsLoading(true);
     try {
       if (checkIsFormValid()) {
-        const { status } = await axios.post("/api/inquiries", form);
+        let data = {
+          name: `${form.first_name} ${form.last_name}`,
+          email: form.email,
+          phone_number: form.phone_number,
+          subject: form.subject,
+          inquiry: form.inquiry,
+        };
+        const { status } = await axios.post("/api/inquiries", data);
         if (status >= 200 && status < 300) {
           setDisplaySuccessModal(true);
           setTimeout(() => {
             setForm({
-              name: "",
+              first_name: "",
+              last_name: "",
               email: "",
               phone_number: "",
               subject: "",
@@ -102,10 +112,17 @@ const ContactUs: FC = () => {
         </div>
         <div className="grid grid-cols-2 gap-8">
           <ContactUsInput
-            label="Name"
-            value={form.name}
+            label="First Name"
+            value={form.first_name}
             onChange={(e) => {
-              setForm((state) => ({ ...state, name: e.target.value }));
+              setForm((state) => ({ ...state, first_name: e.target.value }));
+            }}
+          />
+          <ContactUsInput
+            label="Last Name"
+            value={form.last_name}
+            onChange={(e) => {
+              setForm((state) => ({ ...state, last_name: e.target.value }));
             }}
           />
           <ContactUsInput
@@ -123,6 +140,7 @@ const ContactUs: FC = () => {
             }}
           />
           <ContactUsInput
+            className="col-span-2"
             label="Subject"
             value={form.subject}
             onChange={(e) => {
