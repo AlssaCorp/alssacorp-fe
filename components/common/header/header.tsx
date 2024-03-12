@@ -46,7 +46,7 @@ export function Header() {
 
         <Sheet>
           <SheetTrigger>
-            <div className="text-[#FFF]">
+            <div className="md:hidden text-[#FFF]">
               <svg
                 strokeWidth="1.5"
                 viewBox="0 0 24 24"
