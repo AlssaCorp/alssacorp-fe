@@ -80,9 +80,9 @@ export function Header() {
           </SheetTrigger>
           <SheetContent className="bg-[#FFF]">
             <div>
-              <ul className="text-lg mt-4 text-[#1F2839] flex flex-col gap-2 cursor-pointer">
+              <ul className="text-lg mt-4 text-[#1F2839] flex flex-col gap-2">
                 <li
-                  className={`px-4 py-2 rounded ${activeMenu === "home" && "bg-[#1F2839] text-[#FFF]"}`}
+                  className={`px-4 cursor-pointer py-2 rounded ${activeMenu === "home" && "bg-[#1F2839] text-[#FFF]"}`}
                   onClick={() => onHumbergerListClick("home", "/")}
                 >
                   Home
@@ -95,7 +95,7 @@ export function Header() {
                   }}
                 >
                   <div
-                    className={`${isAboutUsActive && "bg-[#1F2839] text-[#FFF]"} flex gap-2 justify-between items-center px-4 py-2 rounded w-full`}
+                    className={`cursor-pointer ${isAboutUsActive && "bg-[#1F2839] text-[#FFF]"} flex gap-2 justify-between items-center px-4 py-2 rounded w-full`}
                   >
                     About Us{" "}
                     {isAboutUsActive ? (
@@ -123,6 +123,7 @@ export function Header() {
                   {isAboutUsActive && (
                     <ul className="transition ease-in-out duration-300 px-4 py-2 bg-[#EDEEF0] w-full rounded flex flex-col gap-4 cursor-pointer">
                       <li
+                        className="cursor-pointer"
                         onClick={() => {
                           onHumbergerListClick("about", "/about-us");
                         }}
@@ -130,6 +131,7 @@ export function Header() {
                         About Alssa
                       </li>
                       <li
+                        className="cursor-pointer"
                         onClick={() => {
                           onHumbergerListClick(
                             "about",
@@ -143,13 +145,13 @@ export function Header() {
                   )}
                 </li>
                 <li
-                  className={`px-4 py-2 rounded ${activeMenu === "products" && "bg-[#1F2839] text-[#FFF]"}`}
+                  className={`cursor-pointer px-4 py-2 rounded ${activeMenu === "products" && "bg-[#1F2839] text-[#FFF]"}`}
                   onClick={() => onHumbergerListClick("products", "/products")}
                 >
                   Product
                 </li>
                 <li
-                  className={`px-4 py-2 rounded ${activeMenu === "contact-us" && "bg-[#1F2839] text-[#FFF]"}`}
+                  className={`cursor-pointer px-4 py-2 rounded ${activeMenu === "contact-us" && "bg-[#1F2839] text-[#FFF]"}`}
                   onClick={() =>
                     onHumbergerListClick("contact-us", "/contact-us")
                   }
