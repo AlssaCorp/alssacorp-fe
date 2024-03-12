@@ -1,4 +1,5 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import { CheckedState } from "@radix-ui/react-checkbox";
 import { Dispatch, FC, MouseEventHandler, SetStateAction } from "react";
 
 interface SidebarProps {
@@ -19,7 +20,7 @@ const Sidebar: FC<SidebarProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-2 bg-[#1E29390D] rounded-lg w-[300px] p-4">
+    <div className="hidden md:flex flex-col gap-2 bg-[#1E29390D] rounded-lg w-[300px] p-4">
       {brands.length > 0 && (
         <div className="text-lg font-bold text-[#253961]">Brand</div>
       )}
@@ -67,7 +68,7 @@ const Sidebar: FC<SidebarProps> = ({
 interface CheckProps {
   id: string;
   text: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: (checked: CheckedState) => void;
 }
 
 function Check({ id, text, onClick }: CheckProps) {
@@ -77,7 +78,7 @@ function Check({ id, text, onClick }: CheckProps) {
         id={id}
         value={0}
         className="border-[#BAC7D5]"
-        onClick={onClick}
+        onCheckedChange={onClick}
       />
       <div className="grid gap-1.5 leading-none">
         <label

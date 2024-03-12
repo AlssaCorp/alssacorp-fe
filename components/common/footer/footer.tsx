@@ -1,3 +1,5 @@
+"use client";
+
 import { InstagramLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import React from "react";
 import LocationIcon from "./components/location-icon";
@@ -54,8 +56,22 @@ export default function Footer() {
           </div>
           <div className="flex gap-6 items-center justify-center md:justify-start mt-4 w-full border-b pb-3 md:border-none md:pb-0">
             <p className="text-[#BBB] hidden md:block">Social Media</p>
-            <LinkedInLogoIcon className="w-[18px] h-[18px]" />
-            <InstagramLogoIcon className="w-[18px] h-[18px]" />
+            <div
+              onClick={() => {
+                window.location.href =
+                  "https://www.linkedin.com/company/pt-alssa-corporindo/";
+              }}
+            >
+              <LinkedInLogoIcon className="w-[18px] h-[18px] cursor-pointer" />
+            </div>
+
+            <div
+              onClick={() => {
+                window.location.href = "https://www.instagram.com/alssacorp/";
+              }}
+            >
+              <InstagramLogoIcon className="w-[18px] h-[18px] cursor-pointer" />
+            </div>
           </div>
         </div>
       </div>

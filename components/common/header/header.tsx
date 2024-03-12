@@ -121,7 +121,7 @@ export function Header() {
                     )}
                   </div>
                   {isAboutUsActive && (
-                    <ul className="transition ease-in-out duration-300 px-4 py-2 bg-[#EDEEF0] w-full rounded flex flex-col gap-4 cursor-pointer">
+                    <ul className="transition ease-in-out duration-300 px-4 py-2 bg-[#EDEEF0] w-full rounded flex flex-col gap-4">
                       <li
                         className="cursor-pointer"
                         onClick={() => {

@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import axios from "axios";
 import Image from "next/image";
 import ContactUsInput from "./contact-us-input";
+import { useToast } from "../ui/use-toast";
 
 interface ContactUsForm {
   first_name: string;
@@ -17,6 +18,7 @@ interface ContactUsForm {
 }
 
 const ContactUs: FC = () => {
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [displaySuccessModal, setDisplaySuccessModal] = useState(false);
   const [form, setForm] = useState<ContactUsForm>({
@@ -73,21 +75,27 @@ const ContactUs: FC = () => {
         };
         const { status } = await axios.post("/api/inquiries", data);
         if (status >= 200 && status < 300) {
-          setDisplaySuccessModal(true);
-          setTimeout(() => {
-            setForm({
-              first_name: "",
-              last_name: "",
-              email: "",
-              phone_number: "",
-              subject: "",
-              inquiry: "",
-            });
-            setDisplaySuccessModal(false);
-          }, 3000);
+          setForm({
+            first_name: "",
+            last_name: "",
+            email: "",
+            phone_number: "",
+            subject: "",
+            inquiry: "",
+          });
+
+          toast({
+            title: "Thank you for contacting us.",
+            description: "Our team will assist you shortly !",
+          });
         }
       }
     } catch (error) {
+      toast({
+        title: "Error",
+        description: "There is an Error!",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }

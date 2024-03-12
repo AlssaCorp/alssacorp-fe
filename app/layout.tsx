@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 import WAIcon from "@/components/common/wa-icon/wa-icon";
+import { Toaster } from "@/components/ui/toaster";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {children}
         <Footer />
         <WAIcon />
+        <Toaster />
       </body>
     </html>
   );

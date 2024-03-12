@@ -6,6 +6,10 @@ import ProductList from "./components/product-list";
 import Sidebar from "./components/sidebar";
 import { HeadlineData, Product, ProductsResponse } from "@/dao/products";
 import { FC, useEffect, useState } from "react";
+import FilterIcon from "./components/filter-icon";
+import Image from "next/image";
+import FilterPopover from "./components/filter-popover";
+import FilterIconActive from "./components/filter-icon-actiove";
 
 const headlineData: HeadlineData[] = [
   {
@@ -47,6 +51,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
   );
   const [currentHeadlineData, setCurrentHeadlineData] =
     useState<HeadlineData>();
+  const [mobilePopoverOpened, setMobilePopoverOpened] = useState(false);
 
   useEffect(() => {
     if (category) {
@@ -76,9 +81,9 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
   }, [data.products, filteredBrands, filteredSubCategory]);
 
   return (
-    <div className="bg-[#FFF]">
-      <div className="!bg-[#253D6C99] text-[#FFF]">
-        <div className="container flex justify-center py-8 px-16">
+    <div className="bg-[#FFF] relative">
+      <div className="hidden md:block !bg-[#253D6C99] text-[#FFF]">
+        <div className="container flex justify-center py-8 px-4 sm:px-8 lg:px-16">
           <div className="bg-[#b4c2dd70] rounded-[20px] flex flex-col gap-4 px-6 text-center max-w-[800px] py-4">
             <div className="font-bold text-xl">
               {currentHeadlineData?.title}
@@ -87,7 +92,41 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
           </div>
         </div>
       </div>
-      <div className="flex container px-16 py-8">
+
+      <Image
+        src={"/img/hero/hero-6.png"}
+        height={400}
+        width={1200}
+        alt="logo"
+        className="md:hidden absolute top-16 left-0 !z-0 max-h-[250px]"
+      />
+
+      <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-1">
+        <div className="w-full flex justify-between py-4">
+          <div className="text-[#1F2839] text-2xl font-bold">
+            {currentHeadlineData?.title}
+          </div>
+          <FilterPopover
+            setFilteredBrands={setFilteredBrands}
+            setFilteredSubCategory={setFilteredSubCategory}
+            brands={data.brands}
+            subCategory={data.sub_categories}
+          />
+          <div
+            onClick={() => {
+              setMobilePopoverOpened((state) => !state);
+              document.getElementById("popover-filter-btn")?.click();
+            }}
+          >
+            {mobilePopoverOpened ? <FilterIconActive /> : <FilterIcon />}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row container px-4 sm:px-8 lg:px-16 py-4 pb-8">
+        <div className="text-lg text-[#FFF] z-10 md:hidden mb-4">
+          {currentHeadlineData?.headline}
+        </div>
         <Sidebar
           setFilteredBrands={setFilteredBrands}
           setFilteredSubCategory={setFilteredSubCategory}
@@ -99,7 +138,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
       <div className="w-full pb-8 flex justify-center">
         <div className="grid grid-cols-2 gap-4">
           <Button
-            className="bg-[#E8C05B] hover:bg-[#E8C05BAA]"
+            className="bg-[#E8C05B] hover:bg-[#E8C05BAA] z-10"
             style={{
               boxShadow:
                 "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3)",
@@ -111,7 +150,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
             Back
           </Button>
           <Button
-            className="bg-[#30AA2D] hover:bg-[#30AA2DAA]"
+            className="bg-[#30AA2D] hover:bg-[#30AA2DAA] z-10"
             style={{
               boxShadow:
                 "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3)",
