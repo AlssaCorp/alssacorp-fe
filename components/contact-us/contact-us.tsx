@@ -106,14 +106,15 @@ const ContactUs: FC = () => {
         />
         <div className="absolute inset-0 bg-[rgba(12,33,65,0.5)] backdrop-blur-sm"></div>
       </div>
-      <div className="px-16 py-8 container max-w-[1000px] z-10 relative">
+      <div className="px-4 sm:px-8 lg:px-16 py-8 container max-w-[1000px] z-10 relative">
         <div className="text-2xl font-bold text-white mb-8 mt-12 text-center">
           Any Questions? Ask Our Assistance Here!
         </div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <ContactUsInput
             label="First Name"
             value={form.first_name}
+            className="col-span-2 md:col-span-1"
             onChange={(e) => {
               setForm((state) => ({ ...state, first_name: e.target.value }));
             }}
@@ -121,18 +122,21 @@ const ContactUs: FC = () => {
           <ContactUsInput
             label="Last Name"
             value={form.last_name}
+            className="col-span-2 md:col-span-1"
             onChange={(e) => {
               setForm((state) => ({ ...state, last_name: e.target.value }));
             }}
           />
           <ContactUsInput
             label="Email"
+            className="col-span-2 md:col-span-1"
             value={form.email}
             onChange={(e) => {
               setForm((state) => ({ ...state, email: e.target.value }));
             }}
           />
           <ContactUsInput
+            className="col-span-2 md:col-span-1"
             label="Contact Number"
             value={form.phone_number}
             onChange={(e) => {
@@ -156,7 +160,7 @@ const ContactUs: FC = () => {
             }}
           />
         </div>
-        <div className="flex justify-end mt-4">
+        <div className="flex md:justify-end justify-center mt-6">
           <Button
             className="font-bold !bg-[#FFF] !text-[#000] px-8"
             onClick={submitFormHandler}

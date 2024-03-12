@@ -55,17 +55,17 @@ const explanationData = [
 export default function Products() {
   return (
     <div className="bg-[#FFF]">
-      <div className="py-8 container px-16">
-        <div className="text-3xl pb-8 mt-8">
-          <h1 className="font-bold text-[#B69D74] italic text-center">
+      <div className="py-8 container px-4 sm:px-8 lg:px-16">
+        <div className="text-2xl md:text-3xl pb-8 mt-8">
+          <h1 className="font-bold text-[#1F2839] md:text-[#B69D74] md:italic text-center">
             PRODUCTS & SERVICES
           </h1>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-0">
+      <div className="grid md:grid-cols-2 gap-4 md:gap-0">
         {imageCoverData.map((data, idx) => {
           return (
-            <div key={idx}>
+            <div key={idx} className="px-4 md:px-0">
               <ImageCover
                 imgUrl={data.imgUrl}
                 categoryUrl={data.categoryUrl}
@@ -77,7 +77,7 @@ export default function Products() {
           );
         })}
       </div>
-      <div className="py-8 container px-16 flex gap-4 flex-col text-[#19253E]">
+      <div className="py-8 container px-4 sm:px-8 lg:px-16 flex gap-4 flex-col text-[#19253E]">
         {explanationData.map((data, idx) => (
           <div key={idx}>
             <ProductExplanation
@@ -109,7 +109,7 @@ function ImageCover({
   const route = useRouter();
   return (
     <div
-      className="w-full h-full relative cursor-pointer"
+      className="w-full h-full relative cursor-pointer md:rounded-none rounded-lg overflow-hidden"
       onClick={() => {
         route.push(`/products/${categoryUrl}`);
       }}
@@ -148,8 +148,10 @@ interface ExplanationDataProps {
 function ProductExplanation({ title, description }: ExplanationDataProps) {
   return (
     <div>
-      <div className="text-xl font-bold cursor-pointer">{title}</div>
-      <p>{description}</p>
+      <div className="text-xl font-bold cursor-pointer text-center md:text-start">
+        {title}
+      </div>
+      <p className="text-justify mt-2">{description}</p>
     </div>
   );
 }

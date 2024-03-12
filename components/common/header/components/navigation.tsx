@@ -49,14 +49,6 @@ export default function Navigation() {
                   About Alssa
                 </div>
                 <div
-                  onClick={() =>
-                    handleAboutUseClick("/about-us/message-from-ceo")
-                  }
-                  className="text-center border-y-2 py-1 border-[#ADBBD7] px-4 cursor-pointer"
-                >
-                  Message From CEO
-                </div>
-                <div
                   onClick={() => handleAboutUseClick("/about-us/alssa-gallery")}
                   className="text-center mt-1 px-4 cursor-pointer"
                 >

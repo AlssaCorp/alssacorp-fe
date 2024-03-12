@@ -1,5 +1,6 @@
 "use client";
 
+import SectionTitleStyle1 from "@/components/common/section-title/section-title-style-1";
 import getImageUrl from "@/utils/getImageUrl";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
@@ -20,14 +21,11 @@ const Portfolio: FC<PortfolioProps> = ({ portfolio }) => {
   };
 
   return (
-    <div className="py-8 container px-16">
-      <div className="text-3xl pb-8">
-        <h1 className="font-normal">Alssa Corp</h1>
-        <h1 className="font-black">Portfolio</h1>
-      </div>
+    <div className="py-8 container px-4 sm:px-8 lg:px-16">
+      <SectionTitleStyle1 line1="Alssa Corp" line2="Portfolio" />
       <div className="flex justify-center items-center flex-col">
         <div className="max-w-[1200px] pb-8">
-          <p className="text-normal text-md">
+          <p className="text-normal text-md text-justify">
             With a track record of excellence and innovation, Alssa Corporindo
             Services has been entrusted with the task of implementing
             cutting-edge communication systems at PT Badak NGL. Through their

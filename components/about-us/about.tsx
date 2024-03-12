@@ -5,7 +5,6 @@ import Hero from "./components/hero";
 import Hero2 from "./components/hero-2";
 import NowDays from "./components/nowdays";
 import OurPortfolio from "./components/our-portfolio";
-import { AboutUsClient } from "@/dao/aboutUs";
 
 const About: FC = () => {
   return (
