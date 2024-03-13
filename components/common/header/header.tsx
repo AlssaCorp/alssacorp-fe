@@ -148,7 +148,7 @@ export function Header() {
                   className={`cursor-pointer px-4 py-2 rounded ${activeMenu === "products" && "bg-[#1F2839] text-[#FFF]"}`}
                   onClick={() => onHumbergerListClick("products", "/products")}
                 >
-                  Product
+                  Products
                 </li>
                 <li
                   className={`cursor-pointer px-4 py-2 rounded ${activeMenu === "contact-us" && "bg-[#1F2839] text-[#FFF]"}`}

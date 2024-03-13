@@ -1,6 +1,5 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import { CheckedState } from "@radix-ui/react-checkbox";
-import { Dispatch, FC, MouseEventHandler, SetStateAction } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
+import FilterCheckBox from "./sidebar-checkbox";
 
 interface SidebarProps {
   brands: string[];
@@ -26,7 +25,7 @@ const Sidebar: FC<SidebarProps> = ({
       )}
       {brands.map((brand) => (
         <div key={brand}>
-          <Check
+          <FilterCheckBox
             id={brand}
             text={brand}
             onClick={() => {
@@ -46,7 +45,7 @@ const Sidebar: FC<SidebarProps> = ({
       )}
       {subCategory.map((category) => (
         <div key={category}>
-          <Check
+          <FilterCheckBox
             id={category}
             text={category}
             onClick={() => {
@@ -64,33 +63,6 @@ const Sidebar: FC<SidebarProps> = ({
     </div>
   );
 };
-
-interface CheckProps {
-  id: string;
-  text: string;
-  onClick: (checked: CheckedState) => void;
-}
-
-function Check({ id, text, onClick }: CheckProps) {
-  return (
-    <div className="items-top flex space-x-2">
-      <Checkbox
-        id={id}
-        value={0}
-        className="border-[#BAC7D5]"
-        onCheckedChange={onClick}
-      />
-      <div className="grid gap-1.5 leading-none">
-        <label
-          htmlFor={id}
-          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-medium text-[#253961]"
-        >
-          {text}
-        </label>
-      </div>
-    </div>
-  );
-}
 
 Sidebar.displayName = "Sidebar";
 export default Sidebar;

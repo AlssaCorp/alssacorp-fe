@@ -10,7 +10,7 @@ interface ProductsListProps {
 
 const ProductList: FC<ProductsListProps> = ({ products }) => {
   return (
-    <div className="z-[1] md:pl-6 w-full grid grid-cols sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="z-[1] md:pl-6 w-full grid grid-cols sm:grid-cols-2 md:grid-cols-4 gap-4 px-8">
       {products.map((product) => (
         <div key={product.name}>
           <ProductCard product={product} />

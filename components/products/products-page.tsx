@@ -124,7 +124,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
       </div>
 
       <div className="flex flex-col md:flex-row container px-4 sm:px-8 lg:px-16 py-4 pb-8">
-        <div className="text-lg text-[#FFF] z-10 md:hidden mb-4">
+        <div className="text-lg text-[#FFF] z-10 md:hidden mb-4 font-light">
           {currentHeadlineData?.headline}
         </div>
         <Sidebar

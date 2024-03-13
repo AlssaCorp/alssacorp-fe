@@ -1,13 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { CheckedState } from "@radix-ui/react-checkbox";
-import { FilterIcon } from "lucide-react";
-import { Dispatch, FC, MouseEventHandler, SetStateAction } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
+import FilterCheckBox from "./sidebar-checkbox";
 
 interface FilterPopoverProps {
   brands: string[];
@@ -32,8 +29,8 @@ const FilterPopover: FC<FilterPopoverProps> = ({
           )}
           {brands.map((brand) => (
             <div key={brand}>
-              <Check
-                id={brand}
+              <FilterCheckBox
+                id={`${brand}-mobile`}
                 text={brand}
                 onClick={() => {
                   setFilteredBrands((state) => {
@@ -52,8 +49,8 @@ const FilterPopover: FC<FilterPopoverProps> = ({
           )}
           {subCategory.map((category) => (
             <div key={category}>
-              <Check
-                id={category}
+              <FilterCheckBox
+                id={`${category}-mobile`}
                 text={category}
                 onClick={() => {
                   setFilteredSubCategory((state) => {
@@ -72,32 +69,5 @@ const FilterPopover: FC<FilterPopoverProps> = ({
     </Popover>
   );
 };
-
-interface CheckProps {
-  id: string;
-  text: string;
-  onClick: (checked: CheckedState) => void;
-}
-
-function Check({ id, text, onClick }: CheckProps) {
-  return (
-    <div className="items-top flex space-x-2">
-      <Checkbox
-        id={id}
-        value={0}
-        className="border-[#BAC7D5]"
-        onCheckedChange={onClick}
-      />
-      <div className="grid gap-1.5 leading-none">
-        <label
-          htmlFor={id}
-          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-medium text-[#253961]"
-        >
-          {text}
-        </label>
-      </div>
-    </div>
-  );
-}
 
 export default FilterPopover;
