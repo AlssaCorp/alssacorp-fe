@@ -101,7 +101,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
         className="md:hidden absolute top-16 left-0 !z-0 max-h-[250px]"
       />
 
-      <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-1">
+      <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-1 sticky top-16 z-50 bg-[#FFF]">
         <div className="w-full flex justify-between py-4">
           <div className="text-[#1F2839] text-2xl font-bold">
             {currentHeadlineData?.title}
