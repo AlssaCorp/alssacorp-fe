@@ -108,7 +108,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 9999s ease-in-out 0s;
   transition-delay: 9999s;
-  -webkit-text-fill-color: #AAAEB6 !important;
+  -webkit-text-fill-color: #aaaeb6 !important;
 }
 
 input:-moz-autofill,
@@ -121,5 +121,5 @@ input:-moz-autofill:active {
 
 input:focus,
 input:active {
-  -webkit-text-fill-color: #FFF !important;
+  -webkit-text-fill-color: #fff !important;
 }

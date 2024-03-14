@@ -3,8 +3,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Dispatch, FC, SetStateAction } from "react";
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import FilterCheckBox from "./sidebar-checkbox";
+import FilterIconActive from "./filter-icon-actiove";
 
 interface FilterPopoverProps {
   brands: string[];
@@ -19,9 +27,36 @@ const FilterPopover: FC<FilterPopoverProps> = ({
   setFilteredBrands,
   setFilteredSubCategory,
 }) => {
+  const filterRef = useRef<HTMLButtonElement | null>(null);
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const button = filterRef.current;
+    if (!button) return;
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "aria-expanded"
+        ) {
+          setIsFilterOpen(button.getAttribute("aria-expanded") === "true");
+        }
+      });
+    });
+
+    observer.observe(button, {
+      attributes: true,
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Popover>
-      <PopoverTrigger id="popover-filter-btn"></PopoverTrigger>
+      <PopoverTrigger ref={filterRef} id="popover-filter-btn">
+        <FilterIconActive active={isFilterOpen} />
+      </PopoverTrigger>
       <PopoverContent>
         <div className="md:hidden flex flex-col gap-2 rounded-lg p-2 mr-2">
           {brands.length > 0 && (

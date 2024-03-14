@@ -26,7 +26,7 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <Card className="h-full bg-[#F3F4F5]">
+    <Card className="h-full bg-[#F3F4F5] overflow-hidden shadow-md">
       <CardContent className="text-center p-0 relative">
         <div className="absolute top-2 left-2 z-[2] text-xs">
           <div className="p-1 rounded-lg bg-[#F3F4F5A6] text-[#253961]">

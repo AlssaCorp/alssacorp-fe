@@ -9,7 +9,7 @@ import {
   Autoplay,
 } from "swiper/modules";
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Testimony } from "@/dao/homepage";
 import getImageUrl from "@/utils/getImageUrl";
 import SectionTitleStyle1 from "@/components/common/section-title/section-title-style-1";
@@ -19,7 +19,22 @@ interface GlimpseProps {
 }
 
 const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
+  const [slidesPerView, setSlidesPerView] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      const width = window.innerWidth;
+      const newSlidesPerView =
+        width < 768 ? 1 : testimonies.length <= 3 ? 1 : 3;
+      setSlidesPerView(newSlidesPerView);
+    };
+
+    updateSlidesPerView();
+    window.addEventListener("resize", updateSlidesPerView);
+
+    return () => window.removeEventListener("resize", updateSlidesPerView);
+  }, [testimonies.length]);
 
   return (
     <div className="py-8">
@@ -34,8 +49,9 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
               loop={true}
               centeredSlides={true}
               modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
-              slidesPerView={testimonies.length <= 3 ? 1 : 3}
+              slidesPerView={slidesPerView}
               initialSlide={0}
+              navigation
               autoplay={{ delay: 3000 }}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}

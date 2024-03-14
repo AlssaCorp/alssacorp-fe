@@ -51,7 +51,6 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
   );
   const [currentHeadlineData, setCurrentHeadlineData] =
     useState<HeadlineData>();
-  const [mobilePopoverOpened, setMobilePopoverOpened] = useState(false);
 
   useEffect(() => {
     if (category) {
@@ -101,7 +100,7 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
         className="md:hidden absolute top-16 left-0 !z-0 max-h-[250px]"
       />
 
-      <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-30 sticky top-16 bg-[#FFF]">
+      <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-30 sticky top-16 bg-[#FFF] shadow-md">
         <div className="w-full flex justify-between py-4">
           <div className="text-[#1F2839] text-2xl font-bold">
             {currentHeadlineData?.title}
@@ -112,14 +111,6 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
             brands={data.brands}
             subCategory={data.sub_categories}
           />
-          <div
-            onClick={() => {
-              setMobilePopoverOpened((state) => !state);
-              document.getElementById("popover-filter-btn")?.click();
-            }}
-          >
-            {mobilePopoverOpened ? <FilterIconActive /> : <FilterIcon />}
-          </div>
         </div>
       </div>
 

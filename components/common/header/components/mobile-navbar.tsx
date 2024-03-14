@@ -1,3 +1,4 @@
+import { TriangleDownIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 
@@ -27,7 +28,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
 
   return (
     <div
-      className={`!z-40 fixed w-full fix ${isOpen ? "top-16 opacity-1" : "-top-64 opacity-0"} left-0 bg-[#FFF] transition-all duration-500`}
+      className={`!z-40 fixed w-full fix ${isOpen ? "top-16 opacity-1" : "-top-64 opacity-0"} left-0 bg-[#FFF] transition-all duration-400 shadow-md`}
     >
       <ul className="text-lg p-4 text-[#1F2839] flex flex-col gap-2 w-full">
         <li
@@ -44,33 +45,24 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
           }}
         >
           <div
-            className={`cursor-pointer ${isAboutUsActive && "bg-[#1F2839] text-[#FFF]"} flex gap-2 justify-between items-center px-4 py-2 rounded w-full`}
+            className={`cursor-pointer transition-all duration-400 ${isAboutUsActive && "bg-[#1F2839] text-[#FFF]"} flex gap-2 justify-between items-center px-4 py-2 rounded w-full`}
           >
             About Us{" "}
-            {isAboutUsActive ? (
-              <svg
-                width="10"
-                height="5"
-                viewBox="0 0 10 5"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 5L5 0L10 5H0Z" fill="white" />
-              </svg>
-            ) : (
-              <svg
-                width="10"
-                height="5"
-                viewBox="0 0 10 5"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 0L5 5L10 0H0Z" fill="#363E4D" />
-              </svg>
-            )}
+            <div
+              style={{
+                transform: isAboutUsActive
+                  ? "rotateX(180deg)"
+                  : "rotateX(0deg)",
+              }}
+              className={`${isAboutUsActive && "origin-center"} transition-all duration-400`}
+            >
+              <TriangleDownIcon />
+            </div>
           </div>
           {isAboutUsActive && (
-            <ul className="transition-all duration-300 px-4 py-2 bg-[#EDEEF0] w-full rounded flex flex-col gap-4">
+            <ul
+              className={`h-full transition-all duration-400 px-4 py-2 bg-[#EDEEF0] w-full rounded flex flex-col gap-4 ${!isAboutUsActive ? "h-0 opacity-0" : "h-full opacity-1"}`}
+            >
               <li
                 className="cursor-pointer"
                 onClick={() => {

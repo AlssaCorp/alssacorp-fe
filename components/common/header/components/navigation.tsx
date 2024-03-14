@@ -21,11 +21,35 @@ import { useRouter } from "next/navigation";
 
 export default function Navigation() {
   const routes = useRouter();
+  const triggerRef = React.useRef<HTMLButtonElement | null>(null);
+  const [isAboutUsOpen, setIsAboutUsOpen] = React.useState<boolean>(false);
 
   const handleAboutUseClick = (path: string) => {
     document.getElementById("about-us-btn")?.click();
     routes.push(path);
   };
+
+  React.useEffect(() => {
+    const button = triggerRef.current;
+    if (!button) return;
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "aria-expanded"
+        ) {
+          setIsAboutUsOpen(button.getAttribute("aria-expanded") === "true");
+        }
+      });
+    });
+
+    observer.observe(button, {
+      attributes: true,
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <NavigationMenu className="text-[#fff] !text-md">
@@ -34,11 +58,21 @@ export default function Navigation() {
         <NavigationMenuItem>
           <Popover>
             <PopoverTrigger
+              ref={triggerRef}
               id="about-us-btn"
               className="px-[16px] py-[8px] text-md font-medium flex gap-2 items-center"
             >
               About Us
-              <TriangleDownIcon />
+              <div
+                style={{
+                  transform: isAboutUsOpen
+                    ? "rotateX(180deg)"
+                    : "rotateX(0deg)",
+                }}
+                className={`${isAboutUsOpen && "origin-center"} transition-all duration-400`}
+              >
+                <TriangleDownIcon />
+              </div>
             </PopoverTrigger>
             <PopoverContent className="w-fit px-0 bg-[#FFF] text-[#19253E] font-bolder py-2 text-md">
               <div className="flex flex-col gap-2 w-full justify-center text-[#19253E]">
@@ -71,22 +105,22 @@ export default function Navigation() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0_1762_25)">
+                    <g clipPath="url(#clip0_1762_25)">
                       <path
                         d="M1.5 8.5C1.5 4.9645 1.5 3.19675 2.598 2.098C3.6975 1 5.4645 1 9 1C12.5355 1 14.3032 1 15.4012 2.098C16.5 3.1975 16.5 4.9645 16.5 8.5C16.5 12.0355 16.5 13.8032 15.4012 14.9012C14.304 16 12.5355 16 9 16C5.4645 16 3.69675 16 2.598 14.9012C1.5 13.804 1.5 12.0355 1.5 8.5Z"
                         stroke="#19253E"
-                        stroke-width="1.875"
+                        strokeWidth="1.875"
                       />
                       <path
                         d="M12 7C12.8284 7 13.5 6.32843 13.5 5.5C13.5 4.67157 12.8284 4 12 4C11.1716 4 10.5 4.67157 10.5 5.5C10.5 6.32843 11.1716 7 12 7Z"
                         stroke="#19253E"
-                        stroke-width="1.875"
+                        strokeWidth="1.875"
                       />
                       <path
                         d="M1.5 8.87492L2.814 7.72517C3.14335 7.43722 3.56981 7.28517 4.00704 7.29979C4.44427 7.31441 4.85962 7.49461 5.169 7.80392L8.3865 11.0214C8.63618 11.2711 8.96591 11.4246 9.31766 11.4551C9.66941 11.4855 10.0206 11.3909 10.3095 11.1879L10.5337 11.0304C10.9504 10.7378 11.4541 10.5951 11.9624 10.6257C12.4706 10.6564 12.9535 10.8586 13.332 11.1992L15.75 13.3749"
                         stroke="#19253E"
-                        stroke-width="1.875"
-                        stroke-linecap="round"
+                        strokeWidth="1.875"
+                        strokeLinecap="round"
                       />
                     </g>
                     <defs>
