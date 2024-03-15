@@ -25,10 +25,10 @@ const headlineData: HeadlineData[] = [
       "Revolutionize your communication efficiency with our cutting-edge radio trunking system. Empowering your teams to collaborate effortlessly and stay ahead of the competition.",
   },
   {
-    key: "surveilance",
-    title: "Surveilance",
+    key: "surveillance",
+    title: "Surveillance",
     headline:
-      "Empower your security with our advanced surveilance solutions, delivering real-time monitoring and unparalleled insights. Safeguard your assets and ensure peace of mind through our cutting-edge technology, designed to protect what matters most.",
+      "Empower your security with our advanced surveillance solutions, delivering real-time monitoring and unparalleled insights. Safeguard your assets and ensure peace of mind through our cutting-edge technology, designed to protect what matters most.",
   },
   {
     key: "radio_link",

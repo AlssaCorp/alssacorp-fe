@@ -22,9 +22,9 @@ const imageCoverData = [
   },
   {
     title:
-      "Surveilance Security System Sensor Monitoring and Application Software",
-    imgUrl: "/img/products/surveilance-city.jpg",
-    categoryUrl: "/surveilance",
+      "Surveillance Security System Sensor Monitoring and Application Software",
+    imgUrl: "/img/products/surveillance-city.jpg",
+    categoryUrl: "/surveillance",
     className:
       "linear-gradient(to bottom, rgba(31, 40, 50, 0.5), rgba(220,216, 209, 0.5))",
     textClassName: "text-[#FFF]",
