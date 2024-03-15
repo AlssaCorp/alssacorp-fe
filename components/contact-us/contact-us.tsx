@@ -118,7 +118,7 @@ const ContactUs: FC = () => {
         <div className="text-2xl font-bold text-white mb-8 mt-12 text-center">
           Any Questions? Ask Our Assistance Here!
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 px-6">
           <ContactUsInput
             label="First Name"
             value={form.first_name}

@@ -25,16 +25,16 @@ const headlineData: HeadlineData[] = [
       "Revolutionize your communication efficiency with our cutting-edge radio trunking system. Empowering your teams to collaborate effortlessly and stay ahead of the competition.",
   },
   {
-    key: "surveillance",
+    key: "surveilance",
     title: "Surveilance",
     headline:
-      "Empower your security with our advanced surveillance solutions, delivering real-time monitoring and unparalleled insights. Safeguard your assets and ensure peace of mind through our cutting-edge technology, designed to protect what matters most.",
+      "Empower your security with our advanced surveilance solutions, delivering real-time monitoring and unparalleled insights. Safeguard your assets and ensure peace of mind through our cutting-edge technology, designed to protect what matters most.",
   },
   {
     key: "radio_link",
-    title: "Radio Link & Data solution",
+    title: "Radio Link & Data Solution",
     headline:
-      "Unlock the power of seamless data telemetry with our Radio Link&Data solution. Transmit critical information in real-time, optimize performance, and stay connected across vast distances, revolutionizing the way you monitor and control your operations.",
+      "Unlock the power of seamless data telemetry with our Radio Link & Data Solution. Transmit critical information in real-time, optimize performance, and stay connected across vast distances, revolutionizing the way you monitor and control your operations.",
   },
 ];
 interface ProductsPageProps {
@@ -92,14 +92,6 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
         </div>
       </div>
 
-      <Image
-        src={"/img/hero/hero-6.png"}
-        height={400}
-        width={1200}
-        alt="logo"
-        className="md:hidden absolute top-16 left-0 !z-0 max-h-[250px]"
-      />
-
       <div className="md:hidden w-full container px-4 sm:px-8 lg:px-16 z-30 sticky top-16 bg-[#FFF] shadow-md">
         <div className="w-full flex justify-between py-4">
           <div className="text-[#1F2839] text-2xl font-bold">
@@ -126,6 +118,15 @@ const ProductsPage: FC<ProductsPageProps> = ({ data, category }) => {
         />
         <ProductList products={currentProducts} />
       </div>
+
+      <Image
+        src={"/img/hero/hero-6.png"}
+        height={400}
+        width={1200}
+        alt="logo"
+        className={`md:hidden ${currentProducts.length > 0 && "abolsute"} absolute top-16 left-0 !z-0 max-h-[250px]`}
+      />
+
       <div className="w-full pb-8 flex justify-center">
         <div className="grid grid-cols-2 gap-4">
           <Button

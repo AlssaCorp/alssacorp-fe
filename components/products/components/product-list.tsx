@@ -3,6 +3,7 @@ import { Product } from "@/dao/products";
 import getImageUrl from "@/utils/getImageUrl";
 import Image from "next/image";
 import { FC } from "react";
+import ProductsUnavailableIcon from "./products-unavailable-logo";
 
 interface ProductsListProps {
   products: Product[];
@@ -10,12 +11,21 @@ interface ProductsListProps {
 
 const ProductList: FC<ProductsListProps> = ({ products }) => {
   return (
-    <div className="z-[1] md:pl-6 w-full grid grid-cols sm:grid-cols-2 md:grid-cols-4 gap-4 px-8">
+    <div
+      className={`z-[1] md:pl-6 w-full grid grid-cols ${products.length > 0 && "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"} gap-4 px-8 h-fit`}
+    >
       {products.map((product) => (
         <div key={product.name}>
           <ProductCard product={product} />
         </div>
       ))}
+      {!products.length && (
+        <div className="mt-20 md:mt-0 w-full flex flex-col text-[#253961] items-center gap-4">
+          <div className="font-bold text-3xl">Sorry!</div>
+          <ProductsUnavailableIcon />
+          <div className="font-semibold text-2xl">No Product Available</div>
+        </div>
+      )}
     </div>
   );
 };
