@@ -3,15 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "34.124.163.118",
-        port: "8000",
+        protocol: "https",
+        hostname: "api.alssacorp.co.id",
+        port: "",
         pathname: "/media/**",
       },
       {
         protocol: "http",
         hostname: "localhost",
-        port: "8000",
+        port: "",
         pathname: "/media/**",
       },
     ],

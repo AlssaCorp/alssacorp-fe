@@ -13,6 +13,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 import WAIcon from "@/components/common/wa-icon/wa-icon";
 import { Toaster } from "@/components/ui/toaster";
+import { Metadata } from "next";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,6 +23,11 @@ export const fontSans = FontSans({
 interface RootLayoutProps {
   children: React.ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: "Alssa Corporindo",
+  icons: "/svg/footer-icon.svg",
+};
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (

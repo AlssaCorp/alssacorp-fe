@@ -29,7 +29,7 @@ const OurPortfolio: FC = () => {
   return (
     <div className="bg-[#F2F2F2]">
       <div className="py-8 container max-w-[1000px] px-4 sm:px-8 lg:px-16 ">
-        <SectionTitleStyle1 line1="Our" line2="Portfolio" />
+        <SectionTitleStyle1 line1="Our" line2="Clients" />
         <div className="w-full flex flex-col items-center">
           <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 text-center max-w-[1200px]">
             {data?.clients.map((client) => (

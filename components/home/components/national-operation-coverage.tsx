@@ -16,7 +16,7 @@ const NationalOperationConverage: FC<NationalOperationConverageProps> = ({
 }) => {
   return (
     <div className="py-8 container px-4 sm:px-8 lg:px-16">
-      <SectionTitleStyle1 line1="National" line2="Operaton Coverage" />
+      <SectionTitleStyle1 line1="National" line2="Operation Coverage" />
       <Card className="border-none h-full w-full shadow-none">
         <CardContent className="w-full text-[#FFF] p-0">
           <div className="w-full flex justify-center md:rounded-[2em] overflow-hidden">
