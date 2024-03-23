@@ -26,7 +26,13 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
     const updateSlidesPerView = () => {
       const width = window.innerWidth;
       const newSlidesPerView =
-        width < 768 ? 1 : testimonies.length <= 3 ? 1 : 3;
+        width < 768
+          ? 1
+          : testimonies.length <= 5
+            ? testimonies.length < 3
+              ? 1
+              : 3
+            : 5;
       setSlidesPerView(newSlidesPerView);
     };
 
@@ -49,7 +55,7 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
               <Swiper
                 loop={true}
                 centeredSlides={true}
-                modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
+                modules={[Navigation, A11y, EffectFade, Autoplay]}
                 slidesPerView={slidesPerView}
                 initialSlide={0}
                 navigation
@@ -66,7 +72,7 @@ const Glimpse: FC<GlimpseProps> = ({ testimonies }) => {
                       key={`${id} ${testimony.brand}`}
                     >
                       <div
-                        className={`flex !h-[300px] aspect-square p-12 ${id === activeIndex && "!p-2"}`}
+                        className={`flex p-14 !h-[300px] aspect-square md:p-12 ${id === activeIndex ? "p-14 md:p-4 md:border-b-[6px] border-[#1F2839]" : "md:!pt-4"}`}
                       >
                         <Image
                           src={getImageUrl(testimony.brand_logo)}
