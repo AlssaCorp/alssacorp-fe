@@ -4,7 +4,7 @@ export default function NowDays() {
       <div className="hidden md:block">
         <div className="text-3xl pb-8">
           <h1 className="font-normal">Alssa Corp</h1>
-          <h1 className="font-black">Nowdays</h1>
+          <h1 className="font-black">Nowadays</h1>
         </div>
         <div className="flex flex-col gap-4 text-[#253961]">
           <p>
@@ -48,10 +48,10 @@ interface ValueItemProps {
 function ValueItem({ goal, description }: ValueItemProps) {
   return (
     <div>
-      <div className="font-bold text-2xl text-[#1F2839] md:text-[#B69D74] mb-4">
+      <p className="text-backgrounf-clip bg-[#FFF] font-bold text-2xl text-[#1F2839] md:text-[#B69D74] mb-4">
         {goal}
-      </div>
-      <div className="text-[#253961]">{description}</div>
+      </p>
+      <p className="text-[#253961]">{description}</p>
     </div>
   );
 }

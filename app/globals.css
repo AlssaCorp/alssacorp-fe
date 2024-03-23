@@ -123,3 +123,27 @@ input:focus,
 input:active {
   -webkit-text-fill-color: #fff !important;
 }
+
+.text-backgrounf-clip {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.fallback-aspect-square {
+  aspect-ratio: 1 / 1;
+
+  @supports not (aspect-ratio: 1 / 1) {
+    &::before {
+      float: left;
+      padding-top: 100%;
+      content: "";
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+}

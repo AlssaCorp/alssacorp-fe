@@ -35,7 +35,7 @@ const OurPortfolio: FC = () => {
             {data?.clients.map((client) => (
               <Card
                 key={client.name}
-                className="aspect-square flex items-center justify-center p-0 overflow-hidden w-full h-full"
+                className="fallback-aspect-square flex items-center justify-center p-0 overflow-hidden w-full h-fit"
               >
                 <CardContent className="p-0 relative w-full h-full">
                   <Image

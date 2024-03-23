@@ -55,9 +55,9 @@ interface BannerCardProps {
 
 export function BannerCard({ number, description }: BannerCardProps) {
   return (
-    <Card className="bg-[#F1C248] p-4 !aspect-square w-[90px] sm:w-[130px]">
-      <CardContent className="p-0 text-center w-full h-full">
-        <div className="flex flex-col justify-center sm:justify-start items-center h-full w-full gap-2 text-[#253961BB]">
+    <Card className="bg-[#F1C248] p-4 fallback-aspect-square w-[90px] sm:w-[130px]">
+      <CardContent className="p-0 text-center w-full h-fit">
+        <div className="flex flex-col justify-center sm:justify-start items-center h-fit w-full gap-2 text-[#253961BB]">
           <div className="text-5xl font-bold">{number}</div>
           <div className="hidden sm:block text-sm font-medium">
             {description}

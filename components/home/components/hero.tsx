@@ -1,5 +1,6 @@
 "use client";
 
+import { leagueSpartan } from "@/components/about-us/alssa-gallery/page";
 import HeroContainer from "@/components/common/hero-container";
 import { useRouter } from "next/navigation";
 
@@ -9,7 +10,10 @@ export default function Hero() {
     <HeroContainer src="/img/hero/hero-1.png" className="!justify-center">
       <div className="container w-full flex !justify-end h-full px-4 sm:px-8 lg:px-16">
         <div className="w-full lg:w-3/5 flex items-center text-center lg:text-end relative z-10">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold">
+          <h1
+            className={`text-5xl sm:text-6xl tracking-wider md:text-8xl font-bold ${leagueSpartan.className}`}
+            style={{ lineHeight: "1.2" }}
+          >
             The <span className="text-[#F1C248]">Solution</span> for your
             problems
           </h1>

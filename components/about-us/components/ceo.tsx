@@ -9,7 +9,7 @@ export default function Ceo() {
         src="/img/hero/hero-4.webp"
         className="md:h-[350px] lg:h-[300px] flex justify-center items-center px-4 sm:px-8 lg:px-16"
       >
-        <div className="border-t px-4 sm:px-8 lg:px-16 text-3xl pt-4 font-bold">
+        <div className="text-justify border-t px-4 sm:px-8 lg:px-16 text-3xl pt-4 font-semibold text-[28px]">
           “Innovation, collaboration, and unwavering commitment, Alssa
           Corporindo is driving transformative change and empowering businesses
           to thrive in the dynamic Indonesian market.”
